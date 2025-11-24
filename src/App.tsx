@@ -1,11 +1,11 @@
 import hat_profile from "./images/hat_profile.svg"
-import seacrh_icon from "./images/search_icon.png"
+import seacrh_icon from "./images/search_icon.svg"
 import like_icon from "./images/like.svg"
-
+import "./static/styles/App.css"
 
 export function App(){
     return (
-        <div>
+        <div className = "body-page">
             <div className = "page-hat">
                 <h1 className = "hat-logo">LOGO</h1>
                 <div className = "hat-input-container">
@@ -13,7 +13,7 @@ export function App(){
                     <input type="text" className = "input-search" placeholder="Знайти пост"/>
                 </div>
                 <div className = "hat-profile">
-                    <img src={hat_profile} className = "hat-profile-image" alt=""/>
+                    <h1 className = "enter-to-account">Увійти</h1>
                 </div>
             </div>
             <div className="page-main">
