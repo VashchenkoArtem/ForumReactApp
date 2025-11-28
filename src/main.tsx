@@ -104,7 +104,7 @@ export function Main(){
                         </div>
                     </div>
                 </div>
-                <PostList products = {productList} tags = {tagsList}></PostList>
+                <PostList posts = {productList} tags = {tagsList}></PostList>
             </div>
         </div>
     )
