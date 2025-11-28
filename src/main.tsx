@@ -1,9 +1,76 @@
-import hat_profile from "./images/hat_profile.svg"
 import seacrh_icon from "./images/search_icon.svg"
-import like_icon from "./images/like.svg"
 import style from "./main.module.css"
+import { PostList } from "./postList"
 
+const productList = [
+    {
+        id: 0,
+        title: "First Post",
+        description: "My first post",
+        image: "image.png",
+        userId: 1,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }]
+    },
+    {
+        id: 1,
+        title: "Second Post",
+        description: "My second post",
+        image: "image.png",
+        userId: 1,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }]
+    },
+    {
+        id: 2,
+        title: "Third Post",
+        description: "My third post",
+        image: "image.png",
+        userId: 2,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }]
+    },
+    {
+        id: 3,
+        title: "Forth Post",
+        description: "My forth post",
+        image: "image.png",
+        userId: 4,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        }]
+    }
+]
 
+const tagsList = [
+    {
+        id: 0,
+        name: "#перший_пост"
+    },
+    {
+        id: 1,
+        name: "#вітання"
+    }
+]
 export function Main(){
     return (
         <div className = {style.bodyPage}>
@@ -37,96 +104,7 @@ export function Main(){
                         </div>
                     </div>
                 </div>
-                <div className={style.posts}>
-                    <div className={style.post}>
-                        <div className={style.postHat}>
-                            <div className={style.postAuthor}>
-                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
-                                <h1 className={style.postAuthorName}>User2</h1>
-                            </div>
-                            <div className = {style.line}></div>
-                        </div>
-                        <div className={style.postMainContent}>
-                            <h1 className={style.postTitle}>Всім привіт!</h1>
-                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
-                            <div className={style.postTags}>
-                                <div className={style.postTag}>
-                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
-                                </div>
-                            </div>
-                            <div className={style.likeAndGoToPost}>
-                                <img src={like_icon} alt="" className = {style.likeIcon}/>
-                                <h1 className={style.goToPost}>Перейти до посту</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={style.post}>
-                        <div className={style.postHat}>
-                            <div className={style.postAuthor}>
-                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
-                                <h1 className={style.postAuthorName}>User2</h1>
-                            </div>
-                            <div className = {style.line}></div>
-                        </div>
-                        <div className={style.postMainContent}>
-                            <h1 className={style.postTitle}>Всім привіт!</h1>
-                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
-                            <div className={style.postTags}>
-                                <div className={style.postTag}>
-                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
-                                </div>
-                            </div>
-                            <div className={style.likeAndGoToPost}>
-                                <img src={like_icon} alt="" className = {style.likeIcon}/>
-                                <h1 className={style.goToPost}>Перейти до посту</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={style.post}>
-                        <div className={style.postHat}>
-                            <div className={style.postAuthor}>
-                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
-                                <h1 className={style.postAuthorName}>User2</h1>
-                            </div>
-                            <div className = {style.line}></div>
-                        </div>
-                        <div className={style.postMainContent}>
-                            <h1 className={style.postTitle}>Всім привіт!</h1>
-                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
-                            <div className={style.postTags}>
-                                <div className={style.postTag}>
-                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
-                                </div>
-                            </div>
-                            <div className={style.likeAndGoToPost}>
-                                <img src={like_icon} alt="" className = {style.likeIcon}/>
-                                <h1 className={style.goToPost}>Перейти до посту</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={style.post}>
-                        <div className={style.postHat}>
-                            <div className={style.postAuthor}>
-                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
-                                <h1 className={style.postAuthorName}>User2</h1>
-                            </div>
-                            <div className = {style.line}></div>
-                        </div>
-                        <div className={style.postMainContent}>
-                            <h1 className={style.postTitle}>Всім привіт!</h1>
-                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
-                            <div className={style.postTags}>
-                                <div className={style.postTag}>
-                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
-                                </div>
-                            </div>
-                            <div className={style.likeAndGoToPost}>
-                                <img src={like_icon} alt="" className = {style.likeIcon}/>
-                                <h1 className={style.goToPost}>Перейти до посту</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <PostList products = {productList} tags = {tagsList}></PostList>
             </div>
         </div>
     )

@@ -1,0 +1,136 @@
+@font-face {
+    font-family: "light walsheim";
+    src: local("light walsheim"), url(./static/fonts/GTWalsheimPro-Light.ttf);
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: calc(0.4vw + 0.6vh);
+    max-height: calc(25vw + 35vh);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.5vw + 0.9vh);
+    padding: calc(0.3vw + 0.5vh) calc(1.1vw + 1.6vh);
+    background-color: rgba(239, 241, 254, 1);
+    border-radius: calc(0.4vw + 0.6vh);
+    border: calc(0.08vw + 0.1vh) rgba(228, 228, 233, 1) solid;
+    max-width: calc(34.9vw + 53.9vh);
+    min-width: calc(34.9vw + 53.9vh);
+}
+.postHat{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.3vw + 0.6vh);
+}
+.line{
+    width: 100%;
+    height: calc(0.03vw + 0.05vh);
+    background-color: rgba(172, 165, 176, 1);
+}
+.postAuthor{
+    display: flex;
+    align-items: center;
+    gap: calc(0.6vw + 0.9vh);
+}
+.postAuthorAvatar{
+    width: calc(1.6vw + 2.4vh);
+    height: calc(1.6vw + 2.4vh);
+}
+.postAuthorName{
+    font-size: calc(0.9vw + 1.4vh);
+    color: rgba(99, 83, 95, 0.85);
+    font-weight: 500;
+}
+.postMainContent{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.2vw + 0.3vh);
+}
+.postTitle{
+    font-size: calc(0.8vw + 1.2vh);
+    color: rgba(120, 107, 119, 1);
+    font-weight: 500;
+}
+.postContent{
+    font-size: calc(0.7vw + 1.1vh);
+    color: rgba(120, 107, 119, 1);
+    font-weight: 400;
+}
+.postTags{
+    max-width: calc(32.1vw + 49.5vh);
+    display: flex;
+    gap: calc(0.4vw + 0.6vh);
+    flex-wrap: wrap;
+}
+.postTagTitle{
+    color: rgba(102, 76, 99, 1);
+    font-size: calc(0.6vw + 0.9vh);
+    font-family: "light walsheim", sans-serif;
+    font-weight: 600;
+}
+.likeAndGoToPost{
+    display: flex;
+    gap: calc(0.5vw + 0.6vh);
+}
+.likeIcon{
+    width: calc(0.7vw + 1vh);
+}
+.goToPost{
+    font-size: calc(0.6vw + 0.9vh);
+    color: rgba(0, 0, 0, 0.34);
+    font-weight: 500;
+}
+.filter{
+    display: flex;
+    flex-direction: column;
+    padding: calc(0.5vw + 0.8vh) calc(0.8vw + 1vh);
+    background-color: rgba(238, 241, 255, 1);
+    border-radius: calc(0.4vw + 0.6vh);
+    gap: calc(0.4vw + 0.6vh);
+    width: calc(9.6vw + 14.9vh);
+    border: calc(0.08vw + 0.1vh) rgba(228, 228, 233, 1) solid;
+}
+.titleFilterContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.titleFilter{
+    font-size: calc(0.8vw + 1.2vh);
+    font-family: "light walsheim", sans-serif;
+    color: rgba(64, 42, 47, 1);
+    font-weight: 600;
+}
+.titleArrow{
+    width: calc(0.5vw + 0.8vh);
+}
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.1vw + 0.2vh);
+}
+.filterTitle{
+    font-size: calc(0.6vw + 1vh);
+    font-family: "light walsheim", sans-serif;
+    font-weight: 500;
+    color: rgba(99, 82, 89, 0.8)    ;
+}
+.containerButton{
+    display: flex;
+    align-items: center;
+    gap: calc(0.2vw + 0.4vh);
+}
+.inputButton{
+    width: calc(0.4vw + 0.6vh);
+    height: calc(0.4vw + 0.6vh);
+    border: calc(0.03vw + 0.05vh) rgba(120, 107, 119, 1) solid;
+}
+.filterLabel{
+    font-size: calc(0.5vw + 0.8vh);
+    color: rgba(120, 107, 119, 1);
+}
