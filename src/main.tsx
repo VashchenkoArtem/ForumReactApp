@@ -21,42 +21,108 @@ export function Main(){
                 <div className={style.mainUrls}>
                     <div className={style.urls}>
                         <div className={style.mainUrl}>
-                            <h1 className={style.mainUrlTitle}>Головна</h1>
+                            <a className={style.mainUrlTitle}>Головна</a>
                         </div>
                         <div className={style.url}>
-                            <h1 className={style.urlTitle}>Пости</h1>
+                            <a className={style.urlTitle}>Пости</a>
                         </div>
                         <div className={style.url}>
-                            <h1 className={style.urlTitle}>Створити</h1>
+                            <a className={style.urlTitle}>Створити</a>
                         </div>
                         <div className={style.url}>
-                            <h1 className={style.urlTitle}>Про нас</h1>
+                            <a className={style.urlTitle}>Про нас</a>
                         </div>
                         <div className={style.url}>
-                            <h1 className={style.urlTitle}>Мова</h1>
+                            <a className={style.urlTitle}>Мова</a>
                         </div>
                     </div>
                 </div>
-                <div className="posts">
-                    <div className="post">
-                        <div className="post-hat">
-                            <div className="post-author-hat">
-                                <img src={hat_profile} className = "post-author-hat-image" alt=""/>
-                                <h1 className="post-author-name">User2</h1>
+                <div className={style.posts}>
+                    <div className={style.post}>
+                        <div className={style.postHat}>
+                            <div className={style.postAuthor}>
+                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
+                                <h1 className={style.postAuthorName}>User2</h1>
                             </div>
-                            <div className = "line"></div>
-                            <div className="post-main-content">
-                                <h1 className="post-title">Всім привіт!</h1>
-                                <h1 className = "post-content">Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
-                                <div className="post-tags">
-                                    <div className="post-tag">
-                                        <h1 className="post-tag-title">#перший_вхід</h1>
-                                    </div>
+                            <div className = {style.line}></div>
+                        </div>
+                        <div className={style.postMainContent}>
+                            <h1 className={style.postTitle}>Всім привіт!</h1>
+                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
+                            <div className={style.postTags}>
+                                <div className={style.postTag}>
+                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
                                 </div>
-                                <div className="like-and-go-to-post">
-                                    <img src={like_icon} alt="" className = "like-icon"/>
-                                    <h1 className="go-to-post">Перейти до посту</h1>
+                            </div>
+                            <div className={style.likeAndGoToPost}>
+                                <img src={like_icon} alt="" className = {style.likeIcon}/>
+                                <h1 className={style.goToPost}>Перейти до посту</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.post}>
+                        <div className={style.postHat}>
+                            <div className={style.postAuthor}>
+                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
+                                <h1 className={style.postAuthorName}>User2</h1>
+                            </div>
+                            <div className = {style.line}></div>
+                        </div>
+                        <div className={style.postMainContent}>
+                            <h1 className={style.postTitle}>Всім привіт!</h1>
+                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
+                            <div className={style.postTags}>
+                                <div className={style.postTag}>
+                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
                                 </div>
+                            </div>
+                            <div className={style.likeAndGoToPost}>
+                                <img src={like_icon} alt="" className = {style.likeIcon}/>
+                                <h1 className={style.goToPost}>Перейти до посту</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.post}>
+                        <div className={style.postHat}>
+                            <div className={style.postAuthor}>
+                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
+                                <h1 className={style.postAuthorName}>User2</h1>
+                            </div>
+                            <div className = {style.line}></div>
+                        </div>
+                        <div className={style.postMainContent}>
+                            <h1 className={style.postTitle}>Всім привіт!</h1>
+                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
+                            <div className={style.postTags}>
+                                <div className={style.postTag}>
+                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
+                                </div>
+                            </div>
+                            <div className={style.likeAndGoToPost}>
+                                <img src={like_icon} alt="" className = {style.likeIcon}/>
+                                <h1 className={style.goToPost}>Перейти до посту</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.post}>
+                        <div className={style.postHat}>
+                            <div className={style.postAuthor}>
+                                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
+                                <h1 className={style.postAuthorName}>User2</h1>
+                            </div>
+                            <div className = {style.line}></div>
+                        </div>
+                        <div className={style.postMainContent}>
+                            <h1 className={style.postTitle}>Всім привіт!</h1>
+                            <h1 className = {style.postContent}>Нещодавно зареєструвався на цій платформі. Як у вас справи?</h1>
+                            <div className={style.postTags}>
+                                <div className={style.postTag}>
+                                    <h1 className={style.postTagTitle}>#перший_вхід</h1>
+                                </div>
+                            </div>
+                            <div className={style.likeAndGoToPost}>
+                                <img src={like_icon} alt="" className = {style.likeIcon}/>
+                                <h1 className={style.goToPost}>Перейти до посту</h1>
                             </div>
                         </div>
                     </div>
