@@ -1,0 +1,43 @@
+.urls{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.2vw + 0.3vh);
+}
+.mainUrl{
+    display: flex;
+    align-items: center;
+    width: calc(6.6vw + 10.2vh);
+    height: calc(1.5vw + 2.3vh);
+    border-radius: calc(0.2vw + 0.3vh);
+    background-color: rgba(225, 227, 238, 1);
+    padding: 0px calc(0.8vw + 1.2vh);
+}
+.mainUrlTitle{
+    font-size: calc(0.8vw + 1.2vh);
+    color: rgba(64, 42, 47, 1);
+}
+.url{
+    display: flex;
+    align-items: center;
+    width: calc(6.6vw + 10.2vh);
+    height: calc(1.5vw + 2.3vh);
+    border-radius: calc(0.2vw + 0.3vh);
+    border: calc(0.04vw + 0.08vh) rgba(228, 228, 233, 1) solid;
+    background-color: rgba(238, 241, 255, 1);
+    padding: 0px calc(0.8vw + 1.2vh);
+}
+.url:hover{
+    cursor: pointer;
+    background-color: rgba(225, 227, 238, 1);
+    .urlTitle{
+        font-family: 'regular walsheim', sans-serif;
+    }
+}
+.mainUrl:hover{
+    cursor: pointer;
+}
+.urlTitle{
+    font-size: calc(0.8vw + 1.2vh);
+    color: rgba(64, 42, 47, 1);
+    font-family: "light walsheim", sans-serif;
+}

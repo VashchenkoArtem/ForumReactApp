@@ -1,8 +1,8 @@
 
-import style from "./postListstyle.module.css"
-import { IProps } from "./types"
-import arrow_up from "./images/arrow_up.svg"
-import { PostCard } from "./postCard";
+import style from "./postList.module.css"
+import { IProps } from "./postList.types"
+import { ReactComponent as ArrowUp } from "../../assets/icons/arrowUp.svg"
+import { PostCard } from "../postCard/postCard";
 
 export function PostList(props: IProps){
     const posts  = props.posts;
@@ -12,7 +12,7 @@ export function PostList(props: IProps){
             <div className={style.filter}>
                 <div className={style.titleFilterContainer}>
                     <h1 className={style.titleFilter}>Фільтр</h1>
-                    <img className={style.titleArrow} src={arrow_up} alt="" />
+                    <ArrowUp></ArrowUp>
                 </div>
                 <div className={style.filterContainer}>
                     <h1 className={style.filterTitle}>Лайки</h1>

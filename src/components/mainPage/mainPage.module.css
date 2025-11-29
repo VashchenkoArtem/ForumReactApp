@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "light walsheim";
+    src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
+}
+@font-face {
+    font-family: "regular walsheim";
+    src: local("regular walsheim"), url(../../static/fonts/GTWalsheimPro-Regular.ttf);
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+}
+.bodyPage{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.6vw + 0.9vh);
+    background-color: rgba(250, 248, 255, 1);
+    height: 100%;
+    width: 100%;
+}

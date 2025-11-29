@@ -1,5 +1,5 @@
-import { Main } from "./main"
+import { MainPage } from "./components/mainPage/mainPage"
 
 export function App(){
-    return (<Main />)
+    return (<MainPage />)
 }

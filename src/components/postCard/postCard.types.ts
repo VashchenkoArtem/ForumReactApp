@@ -1,4 +1,3 @@
-
 export interface ITag {
     id: number;
     name: string;
@@ -12,10 +11,6 @@ export interface IPost {
     tags: ITag[];
 }
 
-export interface IProps{
-    posts: IPost[];
-    tags: ITag[];
-}
 export interface IPropsPostCard{
     post: IPost
 }

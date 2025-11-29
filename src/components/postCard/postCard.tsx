@@ -1,7 +1,7 @@
-import style from "./postListstyle.module.css"
-import hat_profile from "./images/hat_profile.svg"
-import like_icon from "./images/like.svg"
-import { IPropsPostCard } from "./types"
+import style from "./postCard.module.css"
+import { ReactComponent as Profile } from "../../assets/icons/profile.svg"
+import { ReactComponent as LikeIcon } from "../../assets/icons/like.svg"
+import { IPropsPostCard } from "./postCard.types"
 
 
 export function PostCard(props: IPropsPostCard){
@@ -9,7 +9,7 @@ export function PostCard(props: IPropsPostCard){
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
-                <img src={hat_profile} className = {style.postAuthorAvatar} alt=""/>
+                <Profile></Profile>
                 <h1 className={style.postAuthorName}>{post.userId}</h1>
             </div>
             <div className = {style.line}></div>
@@ -25,7 +25,7 @@ export function PostCard(props: IPropsPostCard){
                 })}
             </div>
             <div className={style.likeAndGoToPost}>
-                <img src={like_icon} alt="" className = {style.likeIcon}/>
+                <LikeIcon></LikeIcon>
                 <h1 className={style.goToPost}>Перейти до посту</h1>
             </div>
         </div>

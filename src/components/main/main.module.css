@@ -1,0 +1,5 @@
+.pageMain{
+    display: flex;
+    justify-content: center;
+    gap: calc(2.4vw + 3.7vh);
+}
