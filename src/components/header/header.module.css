@@ -1,17 +1,21 @@
-.pageHat{
-    width: 100%;
-    height: calc(3.1vw + 4.8vh);
-    display: flex;
-    background-color: rgba(229, 232, 251, 1);
+header{
+    display: grid;
+    column-gap: clamp(50px, 10vw, 170px);
+    height: 15vh;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px calc(1vw + 1.4vh);
+    justify-content: center;
+    background-color: rgba(229, 232, 251, 1);
+    padding: 0px clamp(24px, 2vw, 35px);
 }
+
 .hatLogo, .enterToAccount{
+    display: flex;
+    flex: 1 0 auto;
     color: rgba(153, 144, 156, 1);
-    font-size: calc(1.6vw + 2.4vh);
+    font-size: clamp(20px, 5vw, 40px);
+    justify-content: center;
 }
-.hatInputContainer{
+/* .hatInputContainer{
     width: calc(25.2vw + 38.8vh);
 }
 .inputSearch{
@@ -30,4 +34,23 @@
     height: calc(0.9vw + 1.4vh);
     top: calc(1vw + 1.5vh);
     margin-left: calc(30vw + 22vh);
+} */
+.pageHat{
+    grid-template-columns: auto 1fr auto;
+}
+.logoContainer, .hatProfile{
+    text-align: center;
+}
+.hatInputContainer{
+    display: flex;
+}
+.inputSearch{
+    flex: 1 1 auto;
+    height: 6vh;
+    border-radius: 7px;
+    border: 1px rgba(172, 165, 176, 1) solid;
+    padding: 0px clamp(15px, 2vw, 21px);
+    font-size: clamp(16px, 2vw, 24px);
+    background-color: rgba(217, 222, 255, 1);
+    color: rgba(64, 42, 47, 0.77);
 }
