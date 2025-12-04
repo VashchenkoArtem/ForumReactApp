@@ -1,18 +1,16 @@
 .post{
     display: flex;
     flex-direction: column;
-    gap: calc(0.5vw + 0.9vh);
-    padding: calc(0.3vw + 0.5vh) calc(1.1vw + 1.6vh);
+    gap: clamp(5px, 2vw, 10px);
+    padding: clamp(3px, 1vw, 15px) clamp(10px, 2vw, 30px);
     background-color: rgba(239, 241, 254, 1);
-    border-radius: calc(0.4vw + 0.6vh);
-    border: calc(0.08vw + 0.1vh) rgba(228, 228, 233, 1) solid;
-    max-width: calc(34.9vw + 53.9vh);
-    min-width: calc(34.9vw + 53.9vh);
+    border-radius: 10px;
+    border: 2px rgba(228, 228, 233, 1) solid;
 }
 .postHat{
     display: flex;
     flex-direction: column;
-    gap: calc(0.3vw + 0.6vh);
+    gap: clamp(5px, 2vw, 10px);
 }
 .line{
     width: 100%;
@@ -22,11 +20,11 @@
 .postAuthor{
     display: flex;
     align-items: center;
-    gap: calc(0.6vw + 0.9vh);
+    gap:clamp(3px, 1vw, 15px);
 }
 .postAuthorAvatar{
-    width: calc(1.6vw + 2.4vh);
-    height: calc(1.6vw + 2.4vh);
+    width: clamp(25px, 3vw, 50px);
+    height: clamp(25px, 3vw, 50px);
 }
 .postAuthorName{
     font-size: calc(0.9vw + 1.4vh);
@@ -36,27 +34,26 @@
 .postMainContent{
     display: flex;
     flex-direction: column;
-    gap: calc(0.2vw + 0.3vh);
+    gap: clamp(1px, 2vw, 5px);
 }
 .postTitle{
-    font-size: calc(0.8vw + 1.2vh);
+    font-size: clamp(16px, 2vw, 24px);
     color: rgba(120, 107, 119, 1);
     font-weight: 500;
 }
 .postContent{
-    font-size: calc(0.7vw + 1.1vh);
+    font-size: clamp(10px, 2vw, 16px);
     color: rgba(120, 107, 119, 1);
     font-weight: 400;
 }
 .postTags{
-    max-width: calc(32.1vw + 49.5vh);
     display: flex;
-    gap: calc(0.4vw + 0.6vh);
+    gap: clamp(5px, 1vw, 10px);
     flex-wrap: wrap;
 }
 .postTagTitle{
     color: rgba(102, 76, 99, 1);
-    font-size: calc(0.6vw + 0.9vh);
+    font-size: clamp(8px, 2vw, 14px);
     font-family: "light walsheim", sans-serif;
     font-weight: 600;
 }

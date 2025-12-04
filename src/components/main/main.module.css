@@ -1,5 +1,6 @@
 .pageMain{
-    display: flex;
-    justify-content: center;
-    gap: calc(2.4vw + 3.7vh);
+    display: grid;
+    padding: 0px clamp(78px, 2vw, 90px);
+    grid-template-columns: 1fr 5fr;
+    column-gap: clamp(40px, 2vw, 60px);
 }

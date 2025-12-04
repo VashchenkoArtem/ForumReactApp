@@ -1,7 +1,6 @@
 header{
     display: grid;
     column-gap: clamp(50px, 10vw, 170px);
-    height: 15vh;
     align-items: center;
     justify-content: center;
     background-color: rgba(229, 232, 251, 1);
@@ -15,26 +14,6 @@ header{
     font-size: clamp(20px, 5vw, 40px);
     justify-content: center;
 }
-/* .hatInputContainer{
-    width: calc(25.2vw + 38.8vh);
-}
-.inputSearch{
-    width: calc(25.2vw + 38.8vh);
-    height: calc(1.8vw + 2.8vh);
-    border-radius: calc(0.4vw + 0.6vh);
-    border: rgba(172, 165, 176, 1) calc(0.06vw + 0.12vh) solid;
-    background-color: rgba(217, 222, 255, 1);
-    padding-left: calc(0.9vw + 0.5vh);   
-    font-size: calc(1.2vw + 1.8vh);
-    color: rgba(64, 42, 47, 0.77);
-}
-.searchImage{
-    position: absolute;
-    width: calc(0.9vw + 1.4vh);
-    height: calc(0.9vw + 1.4vh);
-    top: calc(1vw + 1.5vh);
-    margin-left: calc(30vw + 22vh);
-} */
 .pageHat{
     grid-template-columns: auto 1fr auto;
 }
