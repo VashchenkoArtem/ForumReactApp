@@ -37,7 +37,7 @@
     gap: clamp(1px, 2vw, 5px);
 }
 .postTitle{
-    font-size: clamp(16px, 2vw, 24px);
+    font-size: clamp(14px, 2vw, 20px);
     color: rgba(120, 107, 119, 1);
     font-weight: 500;
 }
@@ -59,13 +59,14 @@
 }
 .likeAndGoToPost{
     display: flex;
-    gap: calc(0.5vw + 0.6vh);
+    align-items: center;
+    gap: clamp(6px, 2vw, 10px);
 }
 .likeIcon{
-    width: calc(0.7vw + 1vh);
+    width: clamp(10px, 1vw, 16px);
 }
 .goToPost{
-    font-size: calc(0.6vw + 0.9vh);
+    font-size: clamp(12px, 2vw, 14px);
     color: rgba(0, 0, 0, 0.34);
     font-weight: 500;
 }

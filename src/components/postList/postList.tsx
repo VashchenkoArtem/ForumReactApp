@@ -8,11 +8,11 @@ export function PostList(props: IProps){
     const posts  = props.posts;
     const tags = props.tags;
     return (
-        <div className={style.posts}>
+        <div className={style.postsWithFilter}>
             <div className={style.filter}>
                 <div className={style.titleFilterContainer}>
                     <h1 className={style.titleFilter}>Фільтр</h1>
-                    <ArrowUp></ArrowUp>
+                    <ArrowUp className={style.titleArrow}></ArrowUp>
                 </div>
                 <div className={style.filterContainer}>
                     <h1 className={style.filterTitle}>Лайки</h1>
@@ -51,10 +51,12 @@ export function PostList(props: IProps){
                     </div>
                 </div>
             </div>
-            { posts.map((post) => {
-                return <PostCard post = {post}></PostCard>
+            <div className={style.posts}>
+                { posts.map((post) => {
+                    return <PostCard post = {post}></PostCard>
 
-            })}
+                })}
+            </div>
         </div>
     )
 }

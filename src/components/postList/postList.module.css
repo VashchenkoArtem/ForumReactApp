@@ -3,11 +3,10 @@
     src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
 }
 
-.posts{
-    display: grid;
+.postsWithFilter{
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: calc(0.4vw + 0.6vh);
+    gap: clamp(5px, 1vw, 10px);
     max-height: clamp(100px, 105vh, 85vh);
     overflow-y: scroll;
     scrollbar-width: none;
@@ -16,33 +15,34 @@
 .filter{
     display: flex;
     flex-direction: column;
-    padding: calc(0.5vw + 0.8vh) calc(0.8vw + 1vh);
+    padding: clamp(3px, 1vw, 15px) clamp(10px, 2vw, 30px);
     background-color: rgba(238, 241, 255, 1);
-    border-radius: calc(0.4vw + 0.6vh);
-    gap: calc(0.4vw + 0.6vh);
-    width: calc(9.6vw + 14.9vh);
-    border: calc(0.08vw + 0.1vh) rgba(228, 228, 233, 1) solid;
+    border-radius: clamp(5px, 2vw, 10px);
+    gap: clamp(2px, 1vw, 10px);
+    width: clamp(120px, 30vw, 300px);
+    border: 2px rgba(228, 228, 233, 1) solid;
 }
 .titleFilterContainer{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .titleFilter{
-    font-size: calc(0.8vw + 1.2vh);
+    font-size: clamp(14px, 2vw, 20px);
     font-family: "light walsheim", sans-serif;
     color: rgba(64, 42, 47, 1);
     font-weight: 600;
 }
 .titleArrow{
-    width: calc(0.5vw + 0.8vh);
+    width: clamp(6px, 2vw, 12px);
 }
 .filterContainer{
     display: flex;
     flex-direction: column;
-    gap: calc(0.1vw + 0.2vh);
+    gap: clamp(1px, 2vw, 3px);
 }
 .filterTitle{
-    font-size: calc(0.6vw + 1vh);
+    font-size: clamp(12px, 2vw, 16px);
     font-family: "light walsheim", sans-serif;
     font-weight: 500;
     color: rgba(99, 82, 89, 0.8)    ;
@@ -50,14 +50,14 @@
 .containerButton{
     display: flex;
     align-items: center;
-    gap: calc(0.2vw + 0.4vh);
+    gap: clamp(2px, 2vw, 6px);
 }
 .inputButton{
-    width: calc(0.4vw + 0.6vh);
-    height: calc(0.4vw + 0.6vh);
-    border: calc(0.03vw + 0.05vh) rgba(120, 107, 119, 1) solid;
+    width: clamp(6px, 2vw, 10px);
+    height: clamp(6px, 2vw, 10px);
+    border: clamp(0.1px, 1vw, 1px) rgba(120, 107, 119, 1) solid;
 }
 .filterLabel{
-    font-size: calc(0.5vw + 0.8vh);
+    font-size: clamp(10px, 2vw, 14px);
     color: rgba(120, 107, 119, 1);
 }

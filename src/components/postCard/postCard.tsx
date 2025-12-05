@@ -25,7 +25,7 @@ export function PostCard(props: IPropsPostCard){
                 })}
             </div>
             <div className={style.likeAndGoToPost}>
-                <LikeIcon></LikeIcon>
+                <LikeIcon className = {style.likeIcon}></LikeIcon>
                 <h1 className={style.goToPost}>Перейти до посту</h1>
             </div>
         </div>
