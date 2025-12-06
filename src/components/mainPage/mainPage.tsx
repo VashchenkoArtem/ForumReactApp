@@ -62,23 +62,12 @@ const productList = [
         }]
     }
 ]
-
-const tagsList = [
-    {
-        id: 0,
-        name: "#перший_пост"
-    },
-    {
-        id: 1,
-        name: "#вітання"
-    }
-]
 export function MainPage(){
     return (
         <div className = {style.bodyPage}>
             <Header></Header>
             <Main>
-                <PostList posts = {productList} tags = {tagsList}></PostList> 
+                <PostList posts = {productList}></PostList> 
             </Main>
         </div>
     )

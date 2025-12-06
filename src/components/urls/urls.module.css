@@ -1,7 +1,6 @@
 .urls{
     display: grid;
     flex-direction: column;
-    justify-content: center;
     row-gap: clamp(1px, 0.5vw, 5px);
     grid-template-rows: auto auto auto auto auto;
 }
@@ -12,7 +11,7 @@
     border-radius: clamp(1px, 0.5vw, 5px);
     background-color: rgba(225, 227, 238, 1);
     padding: 0px clamp(10px, 2vw, 20px);
-    flex: 1 1 170px;
+    height: 5.5vh;
 }
 .mainUrlTitle{
     font-size: clamp(10px, 2vw, 20px);
@@ -21,12 +20,12 @@
 .url{
     display: flex;
     align-items: center;
-    flex: 1 1 170px;
     height: calc(1.5vw + 2.3vh);
     border-radius: clamp(1px, 0.5vw, 5px);
     border: 1px rgba(228, 228, 233, 1) solid;
     background-color: rgba(238, 241, 255, 1);
     padding: 0px clamp(10px, 2vw, 20px);
+    height: 5.5vh;
 }
 .url:hover{
     cursor: pointer;
@@ -42,4 +41,11 @@
     font-size: clamp(10px, 2vw, 20px);
     color: rgba(64, 42, 47, 1);
     font-family: "light walsheim", sans-serif;
+}
+.mainUrls{
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    max-height: 60vh;
+    row-gap: clamp(2px, 2vw, 8px);
+    margin-right: clamp(0px, 2vw, 20px);
 }

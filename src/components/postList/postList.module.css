@@ -2,7 +2,11 @@
     font-family: "light walsheim";
     src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
 }
-
+.posts{
+    display: grid;
+    flex-direction: column;
+    row-gap: clamp(1px, 0.5vw, 5px);
+}
 .postsWithFilter{
     display: flex;
     flex-direction: column;
@@ -12,52 +16,3 @@
     scrollbar-width: none;
 }
 
-.filter{
-    display: flex;
-    flex-direction: column;
-    padding: clamp(3px, 1vw, 15px) clamp(10px, 2vw, 30px);
-    background-color: rgba(238, 241, 255, 1);
-    border-radius: clamp(5px, 2vw, 10px);
-    gap: clamp(2px, 1vw, 10px);
-    width: clamp(120px, 30vw, 300px);
-    border: 2px rgba(228, 228, 233, 1) solid;
-}
-.titleFilterContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.titleFilter{
-    font-size: clamp(14px, 2vw, 20px);
-    font-family: "light walsheim", sans-serif;
-    color: rgba(64, 42, 47, 1);
-    font-weight: 600;
-}
-.titleArrow{
-    width: clamp(6px, 2vw, 12px);
-}
-.filterContainer{
-    display: flex;
-    flex-direction: column;
-    gap: clamp(1px, 2vw, 3px);
-}
-.filterTitle{
-    font-size: clamp(12px, 2vw, 16px);
-    font-family: "light walsheim", sans-serif;
-    font-weight: 500;
-    color: rgba(99, 82, 89, 0.8)    ;
-}
-.containerButton{
-    display: flex;
-    align-items: center;
-    gap: clamp(2px, 2vw, 6px);
-}
-.inputButton{
-    width: clamp(6px, 2vw, 10px);
-    height: clamp(6px, 2vw, 10px);
-    border: clamp(0.1px, 1vw, 1px) rgba(120, 107, 119, 1) solid;
-}
-.filterLabel{
-    font-size: clamp(10px, 2vw, 14px);
-    color: rgba(120, 107, 119, 1);
-}

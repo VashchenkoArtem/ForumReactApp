@@ -1,4 +1,16 @@
 import style from "./urls.module.css"
+import { Filter } from "../filter/filter"
+
+const tagsList = [
+    {
+        id: 0,
+        name: "#перший_пост"
+    },
+    {
+        id: 1,
+        name: "#вітання"
+    }
+]
 
 export function Urls(){
     return (
@@ -20,6 +32,7 @@ export function Urls(){
                     <a className={style.urlTitle}>Мова</a>
                 </div>
             </div>
+            <Filter tags = {tagsList}></Filter>
         </div>
     )
 }

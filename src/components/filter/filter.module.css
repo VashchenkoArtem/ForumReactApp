@@ -1,0 +1,47 @@
+.filter{
+    display: flex;
+    flex-direction: column;
+    padding: clamp(3px, 1vw, 10px) clamp(10px, 2vh, 20px);
+    background-color: rgba(238, 241, 255, 1);
+    border-radius: clamp(5px, 2vh, 10px);
+    gap: clamp(2px, 1vw, 10px);
+    border: 2px rgba(228, 228, 233, 1) solid;
+}
+.titleFilterContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.titleFilter{
+    font-size: clamp(10px, 2vw, 20px);
+    font-family: "light walsheim", sans-serif;
+    color: rgba(64, 42, 47, 1);
+}
+.titleArrow{
+    width: clamp(6px, 2vw, 12px);
+}
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1px, 2vw, 3px);
+}
+.filterTitle{
+    font-size: clamp(10px, 2vw, 16px);
+    font-family: "light walsheim", sans-serif;
+    font-weight: 500;
+    color: rgba(99, 82, 89, 0.8)    ;
+}
+.containerButton{
+    display: flex;
+    align-items: center;
+    gap: clamp(2px, 2vw, 6px);
+}
+.inputButton{
+    width: clamp(6px, 2vw, 10px);
+    height: clamp(6px, 2vw, 10px);
+    border: clamp(0.1px, 1vw, 1px) rgba(120, 107, 119, 1) solid;
+}
+.filterLabel{
+    font-size: clamp(8px, 2vw, 14px);
+    color: rgba(120, 107, 119, 1);
+}
