@@ -1,14 +1,9 @@
-import style from "./mainPage.module.css"
-import { PostList } from "../postList/postList"
-import { Header } from "../header/header"
-import { Main } from "../main/main"
-import { postsList } from "../input/input"
-import { useEffect, useState } from "react"
-import { IPost } from "../postCard/postCard.types"
+import { useEffect, useState } from "react";
+import { IProps } from "./input.types";
+import style from "./input.module.css"
 
 
-export function MainPage(){
-    const [filteredPosts, setfilteredPosts] = useState<IPost[]>([
+export const postsList = [
     {
         id: 0,
         title: "First Post",
@@ -65,13 +60,29 @@ export function MainPage(){
             name: "#перший_пост"
         }]
     }
-])
-    return (
-        <div className = {style.bodyPage}>
-            <Header setFilteredPosts={setfilteredPosts}></Header>
-            <Main>
-                <PostList posts = {filteredPosts}></PostList> 
-            </Main>
-        </div>
-    )
-}   
+]
+
+
+export function InputSearch(props: IProps){
+    const { setFilteredPosts } = props
+    const [ inputData, setInputData] = useState<string>("")
+    useEffect(() => {
+        setFilteredPosts(
+            postsList.filter((post) => {
+                return post.title.includes(inputData)
+            })
+        )
+    }, [inputData])
+    return  <div className = {style.hatInputContainer}>
+                <input 
+                type="text" 
+                className = {style.inputSearch} 
+                placeholder="Знайти пост" 
+                name = "search" 
+                value = {inputData}
+                onChange = {(event)=>{
+                    const input = event.target.value;
+                    setInputData(input)
+                }}/>
+            </div>
+}

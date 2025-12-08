@@ -1,0 +1,10 @@
+.inputSearch{
+    flex: 1 1 auto;
+    height: 6vh;
+    border-radius: 7px;
+    border: 1px rgba(172, 165, 176, 1) solid;
+    padding: 0px clamp(15px, 2vw, 21px);
+    font-size: clamp(16px, 2vw, 24px);
+    background-color: rgba(217, 222, 255, 1);
+    color: rgba(64, 42, 47, 0.77);
+}
