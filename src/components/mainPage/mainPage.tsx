@@ -5,6 +5,7 @@ import { Main } from "../main/main"
 import { postsList } from "../input/input"
 import { useEffect, useState } from "react"
 import { IPost } from "../postCard/postCard.types"
+import { Urls } from "../urls/urls"
 
 
 export function MainPage(){
@@ -69,7 +70,7 @@ export function MainPage(){
     return (
         <div className = {style.bodyPage}>
             <Header setFilteredPosts={setfilteredPosts}></Header>
-            <Main>
+            <Main setFilteredPosts={setfilteredPosts}>
                 <PostList posts = {filteredPosts}></PostList> 
             </Main>
         </div>

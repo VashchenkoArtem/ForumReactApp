@@ -5,7 +5,6 @@ import { IPost } from "../postCard/postCard.types";
 import { InputSearch } from "../input/input"
 
 export function Header(props: {setFilteredPosts: React.Dispatch<React.SetStateAction<IPost[]>>}){
-    const [search, setSearch] = useState<string>("")
     return (
         <header className = {style.pageHat}>
             <div className = {style.logoContainer}>

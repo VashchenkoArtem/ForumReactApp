@@ -1,5 +1,6 @@
-import { ITag } from "../postCard/postCard.types"
+import { IPost, ITag } from "../postCard/postCard.types"
 
 export interface IProps{
-    tags: ITag[]
+    tags: ITag[],
+    setFilteredPosts: React.Dispatch<React.SetStateAction<IPost[]>>
 }

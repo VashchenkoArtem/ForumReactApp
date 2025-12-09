@@ -6,7 +6,7 @@ export function Main(props: IMainProps){
     const { children } = props
     return (
         <main className={style.pageMain}>
-            <Urls></Urls>
+            <Urls setFilteredPosts={props.setFilteredPosts}></Urls>
             { children }
         </main>
     )

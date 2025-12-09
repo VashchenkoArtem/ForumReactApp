@@ -1,5 +1,6 @@
 import style from "./urls.module.css"
 import { Filter } from "../filter/filter"
+import { IPost } from "../postCard/postCard.types"
 
 const tagsList = [
     {
@@ -12,7 +13,7 @@ const tagsList = [
     }
 ]
 
-export function Urls(){
+export function Urls(props: {setFilteredPosts: React.Dispatch<React.SetStateAction<IPost[]>>}){
     return (
         <div className={style.mainUrls}>
             <div className={style.urls}>
@@ -32,7 +33,7 @@ export function Urls(){
                     <a className={style.urlTitle}>Мова</a>
                 </div>
             </div>
-            <Filter tags = {tagsList}></Filter>
+            <Filter setFilteredPosts={props.setFilteredPosts} tags = {tagsList}></Filter>
         </div>
     )
 }

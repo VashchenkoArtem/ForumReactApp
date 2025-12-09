@@ -12,7 +12,7 @@ export function PostList(props: IProps){
         <div className={style.postsWithFilter}>
             <div className={style.posts}>
                 { posts.map((post) => {
-                    return <PostCard post = {post}></PostCard>
+                    return <PostCard key = {post.id} post = {post}></PostCard>
                 })}
             </div>
         </div>

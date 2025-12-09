@@ -19,9 +19,9 @@ export function PostCard(props: IPropsPostCard){
             <h1 className = {style.postContent}>{post.description}</h1>
             <div className={style.postTags}>
                 {post.tags.map((tag) => {
-                return <div className={style.postTag}>
-                    <h1 className={style.postTagTitle}>{tag.name}</h1>
-                </div>  
+                    return <div key = {tag.id} className={style.postTag}>
+                        <h1 className={style.postTagTitle}>{tag.name}</h1>
+                    </div>  
                 })}
             </div>
             <div className={style.likeAndGoToPost}>

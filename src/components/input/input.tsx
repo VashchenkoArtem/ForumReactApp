@@ -17,7 +17,8 @@ export const postsList = [
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 0
     },
     {
         id: 1,
@@ -32,7 +33,8 @@ export const postsList = [
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 1
     },
     {
         id: 2,
@@ -47,7 +49,8 @@ export const postsList = [
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 70
     },
     {
         id: 3,
@@ -58,7 +61,8 @@ export const postsList = [
         tags: [{
             id: 0,
             name: "#перший_пост"
-        }]
+        }],
+        likes: 120
     }
 ]
 
