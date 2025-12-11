@@ -1,15 +1,23 @@
-import style from "./mainPage.module.css"
+import style from "./layout.module.css"
 import { PostList } from "../postList/postList"
 import { Header } from "../header/header"
-import { Main } from "../main/main"
-import { postsList } from "../input/input"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { IPost } from "../postCard/postCard.types"
 import { Urls } from "../urls/urls"
+import { Outlet } from "react-router-dom"
 
-
-export function MainPage(){
-    const [filteredPosts, setfilteredPosts] = useState<IPost[]>([
+const tags = [
+    {
+        id: 0,
+        name: "#перший_пост"
+    },
+    {
+        id: 1,
+        name: "#вітання"
+    }
+] 
+export function Layout(){
+    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([
     {
         id: 0,
         title: "First Post",
@@ -69,10 +77,13 @@ export function MainPage(){
 ])
     return (
         <div className = {style.bodyPage}>
-            <Header setFilteredPosts={setfilteredPosts}></Header>
-            <Main setFilteredPosts={setfilteredPosts}>
+            <Header setFilteredPosts={setFilteredPosts}></Header>
+            <main className={style.pageMain}>
+                <Urls setFilteredPosts={setFilteredPosts}>
+                    <Outlet context = {{ setFilteredPosts, tags}}></Outlet>
+                </Urls>
                 <PostList posts = {filteredPosts}></PostList> 
-            </Main>
+            </main>
         </div>
     )
 }   
