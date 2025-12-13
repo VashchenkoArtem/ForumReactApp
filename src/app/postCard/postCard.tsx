@@ -1,8 +1,9 @@
+import { ICONS } from "../../shared";
 import style from "./postCard.module.css"
-import { ReactComponent as Profile } from "../../assets/icons/profile.svg"
-import { ReactComponent as LikeIcon } from "../../assets/icons/like.svg"
 import { IPropsPostCard } from "./postCard.types"
 
+const Profile = ICONS.profile
+const LikeIcon = ICONS.like
 
 export function PostCard(props: IPropsPostCard){
     const post = props.post;

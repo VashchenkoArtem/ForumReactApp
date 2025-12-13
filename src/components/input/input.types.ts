@@ -1,5 +1,6 @@
-import { IPost } from "../postCard/postCard.types"
+import { IPost } from "../../app/postCard/postCard.types"
 
 export interface IProps{
-    setFilteredPosts: React.Dispatch<React.SetStateAction<IPost[]>>
+    filteredPosts: IPost[],
+    setFilteredPosts: (posts: IPost[]) => void
 }

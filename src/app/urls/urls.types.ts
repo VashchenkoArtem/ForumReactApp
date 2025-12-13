@@ -3,5 +3,5 @@ import { IPost } from "../postCard/postCard.types";
 
 export interface IProps{
     children: ReactNode,
-    setFilteredPosts: React.Dispatch<React.SetStateAction<IPost[]>>
+    setFilteredPosts: (posts: IPost[]) => void
 }

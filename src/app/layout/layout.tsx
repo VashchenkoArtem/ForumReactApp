@@ -16,8 +16,10 @@ const tags = [
         name: "#вітання"
     }
 ] 
+
 export function Layout(){
-    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([
+    const [filteredPosts, setFilteredPosts] = useState<IPost[]>(
+        [
     {
         id: 0,
         title: "First Post",
@@ -34,7 +36,7 @@ export function Layout(){
         }]
     },
     {
-        id: 1,
+        id: 2,
         title: "Second Post",
         description: "My second post",
         image: "image.png",
@@ -49,7 +51,7 @@ export function Layout(){
         }]
     },
     {
-        id: 2,
+        id: 3,
         title: "Third Post",
         description: "My third post",
         image: "image.png",
@@ -64,7 +66,7 @@ export function Layout(){
         }]
     },
     {
-        id: 3,
+        id: 4,
         title: "Forth Post",
         description: "My forth post",
         image: "image.png",
@@ -75,14 +77,17 @@ export function Layout(){
         }]
     }
 ])
+    function setPosts(filteredPosts: IPost[]){
+        setFilteredPosts(filteredPosts)
+    }
     return (
         <div className = {style.bodyPage}>
-            <Header setFilteredPosts={setFilteredPosts}></Header>
+            <Header filteredPosts={filteredPosts} setFilteredPosts={setPosts}></Header>
             <main className={style.pageMain}>
-                <Urls setFilteredPosts={setFilteredPosts}>
-                    <Outlet context = {{ setFilteredPosts, tags}}></Outlet>
+                <Urls setFilteredPosts={setPosts}>
+                    <Outlet></Outlet>
                 </Urls>
-                <PostList posts = {filteredPosts}></PostList> 
+                <PostList posts = {filteredPosts}></PostList>
             </main>
         </div>
     )

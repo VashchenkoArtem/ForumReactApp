@@ -1,7 +1,6 @@
 
 import style from "./postList.module.css"
 import { IProps } from "./postList.types"
-import { ReactComponent as ArrowUp } from "../../assets/icons/arrowUp.svg"
 import { PostCard } from "../postCard/postCard";
 
 

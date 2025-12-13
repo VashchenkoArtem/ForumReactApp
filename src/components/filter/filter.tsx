@@ -1,19 +1,17 @@
 import style from "./filter.module.css"
-import { ReactComponent as ArrowUp } from "../../assets/icons/arrowUp.svg"
 import { IProps } from "./filter.types"
 import { useEffect, useState } from "react"
-import { IPost } from "../postCard/postCard.types"
-import { postsList } from "../input/input"
+import { ICONS } from "../../shared"
 
+const ArrowUp = ICONS.arrowUp
 
 export function Filter(props: IProps){
     const [ inputLikes, setInputLikes ] = useState<number>(-1)
-    const { tags, setFilteredPosts } = props
-    useEffect(()=>{
-        setFilteredPosts(postsList.filter((post)=>{
-            return post.likes > inputLikes
-        }))
-    }, [inputLikes])
+    const [ inputTags, setInputTags ] = useState<string>("")
+    useEffect(() => {
+        
+    })
+    const { tags } = props
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
@@ -78,7 +76,15 @@ export function Filter(props: IProps){
                 <div className={style.containerButtons}>
                     { tags.map((tag) => {
                         return <div key = {tag.id} className={style.containerButton}>
-                                    <input className={style.inputButton}type="checkbox" name = "tag" id = {"tag" + tag.id}/>
+                                    <input className={style.inputButton}
+                                    type="checkbox" 
+                                    name = "tag" 
+                                    id = {"tag" + tag.id} 
+                                    value={tag.name} 
+                                    onChange={(event)=>{
+                                        const input = event.target.value;
+                                        setInputTags(input)
+                                    }}/>
                                     <label className={style.filterLabel} htmlFor={"tag" + tag.id}>{tag.name}</label>
                                 </div>
                     })}
