@@ -1,0 +1,24 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(229, 232, 251, 1);
+    padding: 0px clamp(24px, 2vw, 35px);
+}
+
+.hatLogo, .enterToAccount{
+    display: flex;
+    color: rgba(153, 144, 156, 1);
+    font-size: clamp(20px, 5vw, 40px);
+    justify-content: center;
+}
+.pageHat{
+    grid-template-columns: auto 1fr auto;
+}
+.logoContainer, .hatProfile{
+    text-align: center;
+}
+.hatInputContainer{
+    display: flex;
+}
+

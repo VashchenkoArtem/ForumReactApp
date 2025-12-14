@@ -6,8 +6,7 @@ export function App(){
     return (
         <BrowserRouter>
             <Routes>
-                <Route path = "/" element = {<Layout/>}>
-                </Route>
+                <Route path = "/" element = {<Layout/>}></Route>
                 <Route path = "/posts" element = {<AllPosts/>}></Route>
             </Routes>
         </BrowserRouter>

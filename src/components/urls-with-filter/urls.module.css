@@ -1,0 +1,54 @@
+.urls{
+    display: grid;
+    flex-direction: column;
+    row-gap: clamp(1px, 0.5vw, 5px);
+    grid-template-rows: auto auto auto auto auto;
+}
+.mainUrl{
+    display: flex;
+    align-items: center;
+    height: calc(1.5vw + 2.3vh);
+    border-radius: clamp(1px, 0.5vw, 5px);
+    background-color: rgba(225, 227, 238, 1);
+    padding: 0px clamp(10px, 2vw, 20px);
+    height: 5.5vh;
+}
+.mainUrlTitle{
+    font-size: clamp(10px, 2vw, 20px);
+    color: rgba(64, 42, 47, 1);
+}
+.allPostsUrl,.aboutUsUrl,.createUrl,.languageUrl{
+    display: flex;
+    align-items: center;
+    height: calc(1.5vw + 2.3vh);
+    border-radius: clamp(1px, 0.5vw, 5px);
+    border: 1px rgba(228, 228, 233, 1) solid;
+    background-color: rgba(238, 241, 255, 1);
+    padding: 0px clamp(10px, 2vw, 20px);
+    height: 5.5vh;
+}
+.allPostsUrl:hover,.aboutUsUrl:hover,.createUrl:hover,.languageUrl:hover{
+    cursor: pointer;
+    background-color: rgba(225, 227, 238, 1);
+    .urlTitle{
+        font-family: 'regular walsheim', sans-serif;
+    }
+}
+.mainUrl:hover{
+    cursor: pointer;
+}
+.urlTitle{
+    font-size: clamp(10px, 2vw, 20px);
+    color: rgba(64, 42, 47, 1);
+    font-family: "light walsheim", sans-serif;
+}
+.mainUrls{
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    max-height: 60vh;
+    row-gap: clamp(2px, 2vw, 8px);
+    margin-right: clamp(0px, 2vw, 20px);
+}
+.urlTag{
+    all: unset;
+}

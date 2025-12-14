@@ -76,7 +76,8 @@ export function InputSearch(props: IProps){
                 return post.title.includes(inputData)
             })
         )
-        if (!inputData && filteredPosts.length === 0){
+        if (!inputData){
+            console.log("filter")
             setFilteredPosts(        [
     {
         id: 0,

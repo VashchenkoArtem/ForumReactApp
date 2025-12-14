@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 
 export function Urls(props: IProps){
-    const { children} = props
+    const { children } = props
     return (
         <div className={style.mainUrls}>
             <div className={style.urls}>

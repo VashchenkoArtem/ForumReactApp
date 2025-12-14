@@ -1,10 +1,11 @@
 import { Filter } from "../../components/filter/filter";
-import { Header } from "../../app/header";
 import { Urls } from "../../app/urls";
 import { PostList } from "../../app/postList";
 import style from "../all-posts/all-posts.module.css"
 import { useState } from "react";
 import { IPost } from "../../app/postCard/postCard.types";
+import { HeaderWithInput } from "../../components/header-with-input";
+import { UrlsWithFilter } from "../../components/urls-with-filter";
 
 
 export const tags = [
@@ -83,13 +84,12 @@ export function AllPosts(){
     function setPosts(posts: IPost[]){
         setFilteredPosts(posts)
     }
+    console.log(filteredPosts)
     return (
         <div className = {style.bodyPage}>
-            <Header filteredPosts={filteredPosts} setFilteredPosts={setPosts}></Header>
+            <HeaderWithInput filteredPosts={filteredPosts} setFilteredPosts={setPosts}></HeaderWithInput>
             <main className={style.pageMain}>
-                <Urls setFilteredPosts={setPosts}>
-                    <Filter filteredPosts={filteredPosts} tags = {tags} setFilteredPosts={setPosts}></Filter>
-                </Urls>
+                <UrlsWithFilter filteredPosts={filteredPosts} tags = {tags} setFilteredPosts={setPosts}/>
                 <PostList posts = {filteredPosts}></PostList>
             </main>
         </div>
