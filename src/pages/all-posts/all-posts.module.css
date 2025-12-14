@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "light walsheim";
+    src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
+}
+@font-face {
+    font-family: "regular walsheim";
+    src: local("regular walsheim"), url(../../static/fonts/GTWalsheimPro-Regular.ttf);
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+}
+.bodyPage{
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+    gap: clamp(3px, 2vw, 15px);
+    background-color: rgba(250, 248, 255, 1);
+    height: 100vh;
+    width: 100vw;
+}
+.pageMain{
+    display: grid;
+    padding: 0px clamp(40px, 2vw, 78px);
+    grid-template-columns: 1fr 5fr;
+    column-gap: clamp(40px, 2vw, 60px);
+}

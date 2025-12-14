@@ -2,16 +2,81 @@ import style from "./filter.module.css"
 import { IProps } from "./filter.types"
 import { useEffect, useState } from "react"
 import { ICONS } from "../../shared"
+import { AllPosts } from "../../pages"
 
 const ArrowUp = ICONS.arrowUp
-
+const postsList = [
+    {
+        id: 0,
+        title: "First Post",
+        description: "My first post",
+        image: "image.png",
+        userId: 1,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }],
+        likes: 0
+    },
+    {
+        id: 1,
+        title: "Second Post",
+        description: "My second post",
+        image: "image.png",
+        userId: 1,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }],
+        likes: 1
+    },
+    {
+        id: 2,
+        title: "Third Post",
+        description: "My third post",
+        image: "image.png",
+        userId: 2,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        },
+        {
+            id: 1,
+            name: "#вітання"
+        }],
+        likes: 70
+    },
+    {
+        id: 3,
+        title: "Forth Post",
+        description: "My forth post",
+        image: "image.png",
+        userId: 4,
+        tags: [{
+            id: 0,
+            name: "#перший_пост"
+        }],
+        likes: 120
+    }
+]
 export function Filter(props: IProps){
     const [ inputLikes, setInputLikes ] = useState<number>(-1)
     const [ inputTags, setInputTags ] = useState<string>("")
-    useEffect(() => {
-        
-    })
-    const { tags } = props
+    const { tags, setFilteredPosts, filteredPosts } = props
+
+    useEffect(()=>{
+        setFilteredPosts(postsList.filter((post)=>{
+            return post.likes > inputLikes
+        }))
+    }, [inputLikes])
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
@@ -23,10 +88,10 @@ export function Filter(props: IProps){
                 <div className={style.containerButtons}>
                     <div className={style.containerButton}>
                         <input className={style.inputButton}type="radio" 
-                         value= "100"
-                         name="likesFilter" 
-                         id="likes100" 
-                         onChange={(event)=>{
+                            value= "100"
+                            name="likesFilter" 
+                            id="likes100" 
+                            onChange={(event)=>{
                             const input = Number(event.target.value)
                             setInputLikes(input)
                         }} />
@@ -80,7 +145,7 @@ export function Filter(props: IProps){
                                     type="checkbox" 
                                     name = "tag" 
                                     id = {"tag" + tag.id} 
-                                    value={tag.name} 
+                                    value={`${tag.id} ${tag.name}`} 
                                     onChange={(event)=>{
                                         const input = event.target.value;
                                         setInputTags(input)

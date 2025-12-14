@@ -1,10 +1,24 @@
-import style from "./layout.module.css"
-import { PostList } from "../postList/postList"
-import { Header } from "../header/header"
-import { Urls } from "../urls/urls"
+import { Filter } from "../../components/filter/filter";
+import { Header } from "../../app/header";
+import { Urls } from "../../app/urls";
+import { PostList } from "../../app/postList";
+import style from "../all-posts/all-posts.module.css"
+import { useState } from "react";
+import { IPost } from "../../app/postCard/postCard.types";
 
 
-const posts = [
+export const tags = [
+    {
+        id: 0,
+        name: "#перший_пост"
+    },
+    {
+        id: 1,
+        name: "#вітання"
+    }
+]     
+export function AllPosts(){
+    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([
     {
         id: 0,
         title: "First Post",
@@ -65,15 +79,19 @@ const posts = [
         }],
         likes: 120
     }
-]
-export function Layout(){
+])
+    function setPosts(posts: IPost[]){
+        setFilteredPosts(posts)
+    }
     return (
         <div className = {style.bodyPage}>
-            <Header></Header>
+            <Header filteredPosts={filteredPosts} setFilteredPosts={setPosts}></Header>
             <main className={style.pageMain}>
-                <Urls></Urls>
-                <PostList posts = {posts}></PostList>
+                <Urls setFilteredPosts={setPosts}>
+                    <Filter filteredPosts={filteredPosts} tags = {tags} setFilteredPosts={setPosts}></Filter>
+                </Urls>
+                <PostList posts = {filteredPosts}></PostList>
             </main>
         </div>
     )
-}   
+}

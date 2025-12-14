@@ -1,19 +1,35 @@
+import { Filter } from "../../components/filter"
+import { InputSearch } from "../../components/input"
+import { tags } from "../../pages/all-posts/all-posts"
 import style from "./header.module.css"
-import { IPost } from "../postCard/postCard.types";
-import { InputSearch } from "../../components/input/input-search";
-import { IProps } from "../../components/input/input.types";
+import { IProps } from "./header.types"
 
-
+  
 export function Header(props: IProps){
-    return (
-        <header className = {style.pageHat}>
-            <div className = {style.logoContainer}>
-                <h1 className = {style.hatLogo}>LOGO</h1>
-            </div>
-            <InputSearch filteredPosts={props.filteredPosts} setFilteredPosts = {props.setFilteredPosts}></InputSearch>
-            <div className = {style.hatProfile}>
-                <h1 className = {style.enterToAccount}>Увійти</h1>
-            </div>
-        </header>
-    )
+    const { filteredPosts, setFilteredPosts} = props
+    if (filteredPosts && setFilteredPosts){
+        return (
+            <header className = {style.pageHat}>
+                <div className = {style.logoContainer}>
+                    <h1 className = {style.hatLogo}>LOGO</h1>
+                </div>
+                <InputSearch filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}></InputSearch>
+                <div className = {style.hatProfile}>
+                    <h1 className = {style.enterToAccount}>Увійти</h1>
+                </div>
+            </header>
+        )
+    }
+    else{
+        return (
+            <header className = {style.pageHat}>
+                <div className = {style.logoContainer}>
+                    <h1 className = {style.hatLogo}>LOGO</h1>
+                </div>
+                <div className = {style.hatProfile}>
+                    <h1 className = {style.enterToAccount}>Увійти</h1>
+                </div>
+            </header>
+        )   
+    }
 }

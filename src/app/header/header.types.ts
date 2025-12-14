@@ -1,7 +1,6 @@
-import { ReactNode } from "react";
 import { IPost } from "../postCard/postCard.types";
 
 export interface IProps{
-    children?: ReactNode,
+    filteredPosts?: IPost[],
     setFilteredPosts?: (posts: IPost[]) => void
 }

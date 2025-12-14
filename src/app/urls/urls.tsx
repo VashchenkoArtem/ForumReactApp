@@ -5,16 +5,20 @@ import { Link } from "react-router-dom"
 
 
 export function Urls(props: IProps){
-    const { setFilteredPosts, children} = props
+    const { children} = props
     return (
         <div className={style.mainUrls}>
             <div className={style.urls}>
-                <div className={style.mainUrl}>
-                    <h1 className={style.mainUrlTitle}>Головна</h1>
-                </div>
-                <div className={style.allPostsUrl}>
-                    <h1 className={style.urlTitle}>Пости</h1>
-                </div>
+                <Link to = "/">
+                    <div className={style.mainUrl}>
+                        <h1 className={style.mainUrlTitle}>Головна</h1>
+                    </div>
+                </Link>
+                <Link to = "/posts">
+                    <div className={style.allPostsUrl}>
+                        <h1 className={style.urlTitle}>Пости</h1>
+                    </div>
+                </Link>
                 <div className={style.createUrl}>
                     <h1 className={style.urlTitle}>Створити</h1>
                 </div>

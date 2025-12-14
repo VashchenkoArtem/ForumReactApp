@@ -70,14 +70,13 @@ export const postsList = [
 export function InputSearch(props: IProps){
     const { filteredPosts, setFilteredPosts } = props
     const [ inputData, setInputData] = useState<string>("")
-    
     useEffect(() => {
         setFilteredPosts(
             filteredPosts.filter((post) => {
                 return post.title.includes(inputData)
             })
         )
-        if (!inputData){
+        if (!inputData && filteredPosts.length === 0){
             setFilteredPosts(        [
     {
         id: 0,
@@ -92,10 +91,11 @@ export function InputSearch(props: IProps){
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 0
     },
     {
-        id: 2,
+        id: 1,
         title: "Second Post",
         description: "My second post",
         image: "image.png",
@@ -107,10 +107,11 @@ export function InputSearch(props: IProps){
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 30
     },
     {
-        id: 3,
+        id: 2,
         title: "Third Post",
         description: "My third post",
         image: "image.png",
@@ -122,10 +123,11 @@ export function InputSearch(props: IProps){
         {
             id: 1,
             name: "#вітання"
-        }]
+        }],
+        likes: 70
     },
     {
-        id: 4,
+        id: 3,
         title: "Forth Post",
         description: "My forth post",
         image: "image.png",
@@ -133,10 +135,12 @@ export function InputSearch(props: IProps){
         tags: [{
             id: 0,
             name: "#перший_пост"
-        }]
+        }],
+        likes: 120
     }
 ])
-        }
+        return;        
+}
     }, [inputData])
     return  <div className = {style.hatInputContainer}>
                 <input 
