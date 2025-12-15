@@ -72,12 +72,11 @@ export function InputSearch(props: IProps){
     const [ inputData, setInputData] = useState<string>("")
     useEffect(() => {
         setFilteredPosts(
-            filteredPosts.filter((post) => {
+            postsList.filter((post) => {
                 return post.title.includes(inputData)
             })
         )
         if (!inputData){
-            console.log("filter")
             setFilteredPosts(        [
     {
         id: 0,

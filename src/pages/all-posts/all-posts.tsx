@@ -84,7 +84,6 @@ export function AllPosts(){
     function setPosts(posts: IPost[]){
         setFilteredPosts(posts)
     }
-    console.log(filteredPosts)
     return (
         <div className = {style.bodyPage}>
             <HeaderWithInput filteredPosts={filteredPosts} setFilteredPosts={setPosts}></HeaderWithInput>

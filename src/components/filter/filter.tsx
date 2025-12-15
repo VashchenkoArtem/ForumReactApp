@@ -3,6 +3,7 @@ import { IProps } from "./filter.types"
 import { useEffect, useState } from "react"
 import { ICONS } from "../../shared"
 import { AllPosts } from "../../pages"
+import { postsList } from "../input"
 
 const ArrowUp = ICONS.arrowUp
 export function Filter(props: IProps){
@@ -11,13 +12,16 @@ export function Filter(props: IProps){
     const { tags, setFilteredPosts, filteredPosts } = props
 
     useEffect(()=>{ 
-        setFilteredPosts(filteredPosts.filter((post)=>{
+        setFilteredPosts(postsList.filter((post)=>{
              return post.likes > inputLikes })) 
             }, [inputLikes]) 
     useEffect(() => { 
-        setFilteredPosts( filteredPosts.filter((post) => 
-            post.tags.some((tag) => tag.name === inputTags)
-    ))}, [inputTags])
+        if (inputTags){
+            setFilteredPosts( postsList.filter((post) => 
+                post.tags.some((tag) => tag.name === inputTags)
+        ))  
+        }
+}, [inputTags])
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
