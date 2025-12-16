@@ -4,13 +4,13 @@ import { IProps } from "./header.types"
 
   
 export function HeaderWithInput(props: IProps){
-    const { filteredPosts, setFilteredPosts} = props
+    const { inputData, setInputData} = props
     return (
         <header className = {style.pageHat}>
             <div className = {style.logoContainer}>
                 <h1 className = {style.hatLogo}>LOGO</h1>
             </div>
-            <InputSearch filteredPosts={filteredPosts} setFilteredPosts={setFilteredPosts}></InputSearch>
+            <InputSearch inputData = {inputData} setInputData={setInputData}></InputSearch>
             <div className = {style.hatProfile}>
                 <h1 className = {style.enterToAccount}>Увійти</h1>
             </div>

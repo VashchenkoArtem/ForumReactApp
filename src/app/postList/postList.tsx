@@ -2,6 +2,7 @@
 import style from "./postList.module.css"
 import { IProps } from "./postList.types"
 import { PostCard } from "../postCard/postCard";
+import { useEffect } from "react";
 
 
 

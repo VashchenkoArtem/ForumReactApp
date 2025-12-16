@@ -6,10 +6,10 @@ import { Link } from "react-router-dom"
 
 
 export function UrlsWithFilter(props: IProps){
-    const { tags, setFilteredPosts, filteredPosts } = props
+    const { tags, setInputLikes, setInputTags } = props
     return (
         <Urls>
-            <Filter filteredPosts={filteredPosts} tags = {tags} setFilteredPosts={setFilteredPosts}></Filter>
+            <Filter setInputLikes={setInputLikes} setInputTags={setInputTags} tags = {tags}></Filter>
         </Urls>
     )
 }

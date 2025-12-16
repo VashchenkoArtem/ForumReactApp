@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "light walsheim";
+    src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
+}
+.posts{
+    display: grid;
+    flex-direction: column;
+    row-gap: clamp(1px, 0.5vw, 5px);
+}
+.postsWithFilter{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 1vw, 10px);
+    max-height: clamp(100px, 105vh, 85vh);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+

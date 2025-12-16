@@ -7,21 +7,9 @@ import { postsList } from "../input"
 
 const ArrowUp = ICONS.arrowUp
 export function Filter(props: IProps){
-    const [ inputLikes, setInputLikes ] = useState<number>(-1)
-    const [ inputTags, setInputTags ] = useState<string>("")
-    const { tags, setFilteredPosts, filteredPosts } = props
+    const { tags, setInputLikes, setInputTags } = props
 
-    useEffect(()=>{ 
-        setFilteredPosts(postsList.filter((post)=>{
-             return post.likes > inputLikes })) 
-            }, [inputLikes]) 
-    useEffect(() => { 
-        if (inputTags){
-            setFilteredPosts( postsList.filter((post) => 
-                post.tags.some((tag) => tag.name === inputTags)
-        ))  
-        }
-}, [inputTags])
+
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
@@ -57,7 +45,7 @@ export function Filter(props: IProps){
 
                     <div className={style.containerButton}>
                         <input className={style.inputButton}type="radio" 
-                        value= "0" 
+                        value= "1" 
                         name="likesFilter" 
                         id="likesMoreThan0"
                         onChange={(event)=>{

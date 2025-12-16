@@ -6,6 +6,7 @@ import { useState } from "react";
 import { IPost } from "../../app/postCard/postCard.types";
 import { HeaderWithInput } from "../../components/header-with-input";
 import { UrlsWithFilter } from "../../components/urls-with-filter";
+import { PostListWithFilter } from "../../components/post-list-with-filters";
 
 
 export const tags = [
@@ -81,15 +82,18 @@ export function AllPosts(){
         likes: 120
     }
 ])
+    const [ inputLikes, setInputLikes ] = useState<number>(-1)
+    const [ inputTags, setInputTags ] = useState<string>("")
+    const [ inputData, setInputData] = useState<string>("")
     function setPosts(posts: IPost[]){
         setFilteredPosts(posts)
     }
     return (
         <div className = {style.bodyPage}>
-            <HeaderWithInput filteredPosts={filteredPosts} setFilteredPosts={setPosts}></HeaderWithInput>
+            <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
             <main className={style.pageMain}>
-                <UrlsWithFilter filteredPosts={filteredPosts} tags = {tags} setFilteredPosts={setPosts}/>
-                <PostList posts = {filteredPosts}></PostList>
+                <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} setInputTags={setInputTags}/>
+                <PostListWithFilter inputLikes = {inputLikes} inputTags={inputTags} setFilteredPosts={setPosts} inputData={inputData} filteredPosts = {filteredPosts}/>
             </main>
         </div>
     )

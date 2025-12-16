@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { IProps } from "./input.types";
-import style from "./input.module.css"
 
+import { PostCard } from "../../app/postCard";
+import style from "./postList.module.css"
+import { IProps } from "./postList.types"
+import { useEffect } from "react";
 
-export const postsList = [
+const posts = [
     {
         id: 0,
         title: "First Post",
@@ -34,7 +35,7 @@ export const postsList = [
             id: 1,
             name: "#вітання"
         }],
-        likes: 1
+        likes: 30
     },
     {
         id: 2,
@@ -66,20 +67,39 @@ export const postsList = [
     }
 ]
 
+export function PostListWithFilter(props: IProps){
+    const { filteredPosts, inputData, setFilteredPosts, inputLikes, inputTags } = props
+    useEffect(() => {
+        let filteredPosts = [...posts]
 
-export function InputSearch(props: IProps){
-    const { inputData, setInputData } = props
+        if (inputData) {
+            filteredPosts = filteredPosts.filter(post =>
+                post.title.includes(inputData)
+            )
+        }
 
-    return  <div className = {style.hatInputContainer}>
-                <input 
-                type="text" 
-                className = {style.inputSearch} 
-                placeholder="Знайти пост" 
-                name = "search" 
-                value = {inputData}
-                onChange = {(event)=>{
-                    const input = event.target.value;
-                    setInputData(input)
-                }}/>
+        if (inputLikes) {
+            filteredPosts = filteredPosts.filter(post =>
+                post.likes > inputLikes
+            )
+        }
+
+        if (inputTags) {
+            filteredPosts = filteredPosts.filter(post =>
+                post.tags.some(tag => tag.name === inputTags)
+            )
+        }
+
+        setFilteredPosts(filteredPosts)
+    }, [inputData, inputLikes, inputTags, posts])
+
+    return (
+        <div className={style.postsWithFilter}>
+            <div className={style.posts}>
+                { filteredPosts.map((post) => {
+                    return <PostCard key = {post.id} post = {post}></PostCard>
+                })}
             </div>
+        </div>
+    )
 }
