@@ -7,6 +7,7 @@ const LikeIcon = ICONS.like
 
 export function PostCard(props: IPropsPostCard){
     const post = props.post;
+    console.log(post.tags)
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -19,9 +20,9 @@ export function PostCard(props: IPropsPostCard){
             <h1 className={style.postTitle}>{post.title}</h1>
             <h1 className = {style.postContent}>{post.description}</h1>
             <div className={style.postTags}>
-                {post.tags.map((tag) => {
-                    return <div key = {tag.id} className={style.postTag}>
-                        <h1 className={style.postTagTitle}>{tag.name}</h1>
+                {post.tags?.map((tag) => {
+                    return <div key = {tag.tag.id} className={style.postTag}>
+                        <h1 className={style.postTagTitle}>#{tag.tag.name}</h1>
                     </div>  
                 })}
             </div>

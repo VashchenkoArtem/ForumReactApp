@@ -6,5 +6,6 @@ export interface IProps {
     setFilteredPosts: (posts: IPost[]) => void,
     filteredPosts: IPost[],
     inputLikes: number;
-    inputTags: string
+    inputTags: string;
+    unfilteredPosts: IPost[]
 }

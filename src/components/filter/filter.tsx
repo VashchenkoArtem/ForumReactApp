@@ -1,15 +1,10 @@
 import style from "./filter.module.css"
 import { IProps } from "./filter.types"
-import { useEffect, useState } from "react"
 import { ICONS } from "../../shared"
-import { AllPosts } from "../../pages"
-import { postsList } from "../input"
 
 const ArrowUp = ICONS.arrowUp
 export function Filter(props: IProps){
     const { tags, setInputLikes, setInputTags } = props
-
-
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
