@@ -1,8 +1,9 @@
-
 import { PostCard } from "../../app/postCard";
 import style from "./postList.module.css"
 import { IProps } from "./postList.types"
 import { useEffect } from "react";
+
+
 export function PostListWithFilter(props: IProps){
     const { filteredPosts, inputData, setFilteredPosts, inputLikes, inputTags, unfilteredPosts } = props
     useEffect(() => {
@@ -13,7 +14,6 @@ export function PostListWithFilter(props: IProps){
                 post.title.toLowerCase().includes(inputData.toLowerCase())
             )
         }
-
         if (inputLikes) {
             result = result.filter(post =>
                 post.likes > inputLikes

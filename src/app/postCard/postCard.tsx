@@ -1,13 +1,12 @@
 import { ICONS } from "../../shared";
 import style from "./postCard.module.css"
-import { IPropsPostCard } from "./postCard.types"
+import { IPropsPostCard } from "../../shared/types";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
 
 export function PostCard(props: IPropsPostCard){
     const post = props.post;
-    console.log(post.tags)
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>

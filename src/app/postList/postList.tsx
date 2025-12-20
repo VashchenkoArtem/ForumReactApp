@@ -1,12 +1,11 @@
 
 import style from "./postList.module.css"
-import { IProps } from "./postList.types"
 import { PostCard } from "../postCard/postCard";
-import { useEffect } from "react";
+import { IPostsProps } from "../../shared/types";
 
 
 
-export function PostList(props: IProps){
+export function PostList(props: IPostsProps){
     const { posts } = props
     return (
         <div className={style.postsWithFilter}>

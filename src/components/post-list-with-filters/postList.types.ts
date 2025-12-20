@@ -1,4 +1,4 @@
-import { IPost } from "../../app/postCard/postCard.types";
+import { IPost } from "../../shared/types";
 
 
 export interface IProps {

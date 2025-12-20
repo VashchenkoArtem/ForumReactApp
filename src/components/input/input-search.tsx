@@ -1,8 +1,8 @@
-import { IProps } from "./input.types";
+import { IInputProps } from "../../shared/types";
 import style from "./input.module.css"
 
 
-export function InputSearch(props: IProps){
+export function InputSearch(props: IInputProps){
     const { inputData, setInputData } = props
 
     return  <div className = {style.hatInputContainer}>

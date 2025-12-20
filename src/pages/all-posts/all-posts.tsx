@@ -1,9 +1,6 @@
-import { Filter } from "../../components/filter/filter";
-import { Urls } from "../../app/urls";
-import { PostList } from "../../app/postList";
 import style from "../all-posts/all-posts.module.css"
-import { use, useEffect, useState } from "react";
-import { IPost, ITag } from "../../app/postCard/postCard.types";
+import { useEffect, useState } from "react";
+import { IPost, ITag } from "../../shared/types";
 import { HeaderWithInput } from "../../components/header-with-input";
 import { UrlsWithFilter } from "../../components/urls-with-filter";
 import { PostListWithFilter } from "../../components/post-list-with-filters";

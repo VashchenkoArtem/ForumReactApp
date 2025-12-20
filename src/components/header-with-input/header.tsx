@@ -1,9 +1,9 @@
 import { InputSearch } from "../input"
 import style from "./header.module.css"
-import { IProps } from "./header.types"
+import { IInputProps } from "../../shared/types"
 
   
-export function HeaderWithInput(props: IProps){
+export function HeaderWithInput(props: IInputProps){
     const { inputData, setInputData} = props
     return (
         <header className = {style.pageHat}>

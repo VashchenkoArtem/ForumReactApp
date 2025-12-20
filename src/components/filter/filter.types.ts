@@ -1,4 +1,4 @@
-import { IPost, ITag } from "../../app/postCard/postCard.types"
+import { ITag } from "../../shared/types"
 
 export interface IProps{
     tags: ITag[],
