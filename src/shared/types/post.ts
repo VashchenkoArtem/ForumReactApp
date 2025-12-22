@@ -10,13 +10,27 @@ export interface ITagOnPost{
         name: string
     }
 }
+export interface IUser{
+    id: number;
+    firstName: string;
+    secondName: string;
+    email: string;
+}
+export interface ILike{
+    id: number;
+    userId: number;
+    postId: number;
+    user: IUser;
+    post: IPost;
+}
 export interface IPost {
     id?: number | undefined;
     title: string;
     description: string;
     image: string;
     userId: number;
-    likes: number;
+    createdBy: IUser;
+    likes: ILike[];
     tags?: ITagOnPost[];
 }
 
@@ -26,3 +40,4 @@ export interface IPropsPostCard{
 export interface IPostsProps {
     posts: IPost[]
 }
+

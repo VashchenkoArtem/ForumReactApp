@@ -4,45 +4,42 @@ import { IPost, ITag } from "../../shared/types";
 import { HeaderWithInput } from "../../components/header-with-input";
 import { UrlsWithFilter } from "../../components/urls-with-filter";
 import { PostListWithFilter } from "../../components/post-list-with-filters";
+import { usePostsAndTags } from "../../hooks/use-posts-and-tags";
+import { MoonLoader } from "react-spinners";
 
  
 export function AllPosts(){
-    const [ unfilteredPosts, setUnfilteredPosts] = useState<IPost[]>([])
+    const productsAndTags = usePostsAndTags()
     const [filteredPosts, setFilteredPosts] = useState<IPost[]>([])
     const [ inputLikes, setInputLikes ] = useState<number>(-1)
-    const [ inputTags, setInputTags ] = useState<string>("")
+    const [ inputTags, setInputTags ] = useState<string[]>([])
     const [ inputData, setInputData] = useState<string>("")
-    const [ tags, setTags ] = useState<ITag[]>([])
     function setPosts(posts: IPost[]){
         setFilteredPosts(posts)
     }
-    useEffect(()=>{
-        async function getAllPosts(){
-            try{
-                const response = await fetch("http://localhost:8000/posts")
-                const allPosts = await response.json()
-                setUnfilteredPosts(allPosts)
-            }catch(error){
-                console.log(error)
-            }
-        }
-        async function getAllTags(){
-            try{
-                const response = await fetch("http://localhost:8000/tags")
-                const allTags = await response.json()
-                setTags(allTags)
-            }catch(error){
-                throw error
-            }
-        }
-        getAllPosts()
-        getAllTags()
-    },[])
+    const { unfilteredPosts, setUnfilteredPosts, tags, setTags, loading } = productsAndTags
+    if (loading){
+        return (
+            <div className = {style.bodyPage}>
+                <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
+                <main className={style.pageMainWithSpinner}>
+                    <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
+                    <MoonLoader
+                    color="#0338bc"
+                    cssOverride={{}}
+                    loading
+                    size={40}
+                    speedMultiplier={1}
+                    />
+                </main>
+            </div>
+        )
+    }
     return (
         <div className = {style.bodyPage}>
             <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
             <main className={style.pageMain}>
-                <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} setInputTags={setInputTags}/>
+                <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
                 <PostListWithFilter unfilteredPosts = {unfilteredPosts} inputLikes = {inputLikes} inputTags={inputTags} setFilteredPosts={setPosts} inputData={inputData} filteredPosts = {filteredPosts}/>
             </main>
         </div>

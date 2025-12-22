@@ -15,15 +15,20 @@ export function PostListWithFilter(props: IProps){
             )
         }
         if (inputLikes) {
-            result = result.filter(post =>
-                post.likes > inputLikes
-            )
+            result = result.filter((post) =>{
+                console.log(post.likes.length)
+                return post.likes.length > inputLikes
+        })
         }
-
+        
         if (inputTags) {
+            console.log(inputTags)
             result = result.filter(post =>
-                post.tags?.some(tag => tag.tag.name === inputTags)
+            inputTags.every(tagName =>
+                post.tags?.some(t => t.tag.name === tagName)
             )
+            )
+
         }
         setFilteredPosts(result)
     }, [inputData, inputLikes, inputTags, unfilteredPosts])

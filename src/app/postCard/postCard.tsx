@@ -11,7 +11,7 @@ export function PostCard(props: IPropsPostCard){
         <div className={style.postHat}>
             <div className={style.postAuthor}>
                 <Profile className={style.postAuthorAvatar}></Profile>
-                <h1 className={style.postAuthorName}>{post.userId}</h1>
+                <h1 className={style.postAuthorName}>{post.createdBy.firstName}</h1>
             </div>
             <div className = {style.line}></div>
         </div>
@@ -27,6 +27,7 @@ export function PostCard(props: IPropsPostCard){
             </div>
             <div className={style.likeAndGoToPost}>
                 <LikeIcon className = {style.likeIcon}></LikeIcon>
+                <h1 className={style.goToPost}>{post.likes.length}</h1>
                 <h1 className={style.goToPost}>Перейти до посту</h1>
             </div>
         </div>

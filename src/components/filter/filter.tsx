@@ -1,10 +1,10 @@
 import style from "./filter.module.css"
-import { IProps } from "./filter.types"
 import { ICONS } from "../../shared"
+import { IUrlsProps } from "../../shared/types/urls"
 
 const ArrowUp = ICONS.arrowUp
-export function Filter(props: IProps){
-    const { tags, setInputLikes, setInputTags } = props
+export function Filter(props: IUrlsProps){
+    const { tags, setInputLikes, setInputTags, inputTags } = props
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
@@ -40,7 +40,7 @@ export function Filter(props: IProps){
 
                     <div className={style.containerButton}>
                         <input className={style.inputButton}type="radio" 
-                        value= "1" 
+                        value= "0.5" 
                         name="likesFilter" 
                         id="likesMoreThan0"
                         onChange={(event)=>{
@@ -52,7 +52,7 @@ export function Filter(props: IProps){
 
                     <div className={style.containerButton}>
                         <input className={style.inputButton}type="radio" 
-                        value= "-1"
+                        value= "0"
                         name="likesFilter" 
                         id="likes0" 
                         onChange={(event)=>{
@@ -75,8 +75,12 @@ export function Filter(props: IProps){
                                     id = {"tag" + tag.id} 
                                     value={tag.name} 
                                     onChange={(event)=>{
-                                        const input = event.target.value;
-                                        setInputTags(input)
+                                        const isChecked = event.target.checked;
+                                        if (isChecked){
+                                            setInputTags([...inputTags, tag.name])
+                                        }else if (!isChecked){
+                                            setInputTags(inputTags.filter((inputTag) => inputTag !== tag.name))
+                                        }
                                     }}/>
                                     <label className={style.filterLabel} htmlFor={"tag" + tag.id}>{tag.name}</label>
                                 </div>

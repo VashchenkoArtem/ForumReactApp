@@ -1,15 +1,13 @@
 import { Urls } from "../../app/urls"
+import { IUrlsProps } from "../../shared/types/urls"
 import { Filter } from "../filter"
-import style from "./urls.module.css"
-import { IProps } from "./urls.types"
-import { Link } from "react-router-dom"
 
 
-export function UrlsWithFilter(props: IProps){
-    const { tags, setInputLikes, setInputTags } = props
+export function UrlsWithFilter(props: IUrlsProps){
+    const { tags, setInputLikes, setInputTags, inputTags } = props
     return (
         <Urls>
-            <Filter setInputLikes={setInputLikes} setInputTags={setInputTags} tags = {tags}></Filter>
+            <Filter setInputLikes={setInputLikes} setInputTags={setInputTags} tags = {tags} inputTags={inputTags}></Filter>
         </Urls>
     )
 }
