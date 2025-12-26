@@ -1,10 +1,10 @@
 @font-face {
     font-family: "light walsheim";
-    src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
+    src: local("light walsheim"), url(../../shared/fonts/GTWalsheimPro-Light.ttf);
 }
 @font-face {
     font-family: "regular walsheim";
-    src: local("regular walsheim"), url(../../static/fonts/GTWalsheimPro-Regular.ttf);
+    src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
 }
 *{
     padding: 0px;

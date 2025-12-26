@@ -70,3 +70,7 @@
     color: rgba(0, 0, 0, 0.34);
     font-weight: 500;
 }
+.post {
+    height: fit-content;
+    align-self: start;
+}

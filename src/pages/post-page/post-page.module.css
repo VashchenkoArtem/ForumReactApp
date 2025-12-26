@@ -30,3 +30,7 @@
     align-items: center;
     justify-items: center;
 }
+.post {
+    height: fit-content !important;
+    align-self: start !important;
+}

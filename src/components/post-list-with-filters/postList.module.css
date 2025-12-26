@@ -1,6 +1,6 @@
 @font-face {
     font-family: "light walsheim";
-    src: local("light walsheim"), url(../../static/fonts/GTWalsheimPro-Light.ttf);
+    src: local("light walsheim"), url(../../shared/fonts/GTWalsheimPro-Light.ttf);
 }
 .posts{
     display: grid;

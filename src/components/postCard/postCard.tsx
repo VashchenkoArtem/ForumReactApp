@@ -1,12 +1,14 @@
 import { ICONS } from "../../shared";
 import style from "./postCard.module.css"
 import { IPropsPostCard } from "../../shared/types";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
 
 export function PostCard(props: IPropsPostCard){
     const post = props.post;
+
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -27,8 +29,10 @@ export function PostCard(props: IPropsPostCard){
             </div>
             <div className={style.likeAndGoToPost}>
                 <LikeIcon className = {style.likeIcon}></LikeIcon>
-                <h1 className={style.goToPost}>{post.likes.length}</h1>
-                <h1 className={style.goToPost}>Перейти до посту</h1>
+                <h1 className={style.goToPost}>{post.likes?.length}</h1>
+                <Link to={`/posts/${post.id}`}>
+                    <h1 className={style.goToPost}>Перейти до посту</h1>
+                </Link>
             </div>
         </div>
     </div>

@@ -1,11 +1,11 @@
 import style from "./layout.module.css"
-import { PostList } from "../postList/postList"
 import { Header } from "../header/header"
 import { Urls } from "../urls/urls"
 import { useEffect, useState } from "react"
 import { IPost } from "../../shared/types"
 import { usePostsAndTags } from "../../hooks/use-posts-and-tags"
 import { MoonLoader } from "react-spinners"
+import { PostList } from "../../components/postList"
 
 
 export function Layout(){

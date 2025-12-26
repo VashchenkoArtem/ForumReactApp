@@ -1,4 +1,4 @@
-import { PostCard } from "../../app/postCard";
+import { PostCard } from "../postCard";
 import style from "./postList.module.css"
 import { IProps } from "./postList.types"
 import { useEffect } from "react";
