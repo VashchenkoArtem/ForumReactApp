@@ -1,0 +1,76 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 2vw, 10px);
+    padding: clamp(3px, 1vw, 15px) clamp(10px, 2vw, 30px);
+    background-color: rgba(239, 241, 254, 1);
+    border-radius: 10px;
+    border: 2px rgba(228, 228, 233, 1) solid;
+}
+.postHat{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 2vw, 10px);
+}
+.line{
+    width: 100%;
+    height: calc(0.03vw + 0.05vh);
+    background-color: rgba(172, 165, 176, 1);
+}
+.postAuthor{
+    display: flex;
+    align-items: center;
+    gap:clamp(3px, 1vw, 15px);
+}
+.postAuthorAvatar{
+    width: clamp(25px, 3vw, 50px);
+    height: clamp(25px, 3vw, 50px);
+}
+.postAuthorName{
+    font-size: calc(0.9vw + 1.4vh);
+    color: rgba(99, 83, 95, 0.85);
+    font-weight: 500;
+}
+.postMainContent{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1px, 2vw, 5px);
+}
+.postTitle{
+    font-size: clamp(14px, 2vw, 20px);
+    color: rgba(120, 107, 119, 1);
+    font-weight: 500;
+}
+.postContent{
+    font-size: clamp(10px, 2vw, 16px);
+    color: rgba(120, 107, 119, 1);
+    font-weight: 400;
+}
+.postTags{
+    display: flex;
+    gap: clamp(5px, 1vw, 10px);
+    flex-wrap: wrap;
+}
+.postTagTitle{
+    color: rgba(102, 76, 99, 1);
+    font-size: clamp(8px, 2vw, 14px);
+    font-family: "light walsheim", sans-serif;
+    font-weight: 600;
+}
+.likeAndGoToPost{
+    display: flex;
+    align-items: center;
+    gap: clamp(6px, 2vw, 10px);
+}
+.likeIcon{
+    width: clamp(10px, 1vw, 16px);
+}
+.goToPost{
+    font-size: clamp(12px, 2vw, 14px);
+    color: rgba(0, 0, 0, 0.34);
+    font-weight: 500;
+}
+.post {
+    height: fit-content;
+    align-self: start;
+}

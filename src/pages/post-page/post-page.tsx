@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { Header } from '../../app/header'
 import { Urls } from '../../app/urls'
-import { PostCard } from '../../components/postCard'
 import { useProduct } from '../../hooks/use-product'
 import style from './post-page.module.css'
+import { PostCardWithComments } from '../../components/post-card-with-comments'
 
 export function PostPage(){
     const { postId } = useParams()
@@ -26,7 +26,7 @@ export function PostPage(){
             <Header></Header>
             <main className={style.pageMain}>
                 <Urls/>
-               <PostCard post = {post}/>
+               <PostCardWithComments post = {post}/>
             </main>
         </div>
     )

@@ -30,3 +30,17 @@
     align-items: center;
     justify-items: center;
 }
+
+@media (width < 767px){
+    .pageMain, .pageMainWithSpinner{
+        display: grid;
+        width: 100%;
+        padding: 0px;
+        padding-right: clamp(20px, 2vw, 40px);
+        grid-template-columns: 1fr 10fr;
+        column-gap: clamp(20px, 2vw, 40px);
+    }
+    .bodyPage{
+        grid-template-rows: 1fr 15fr;
+    }
+}

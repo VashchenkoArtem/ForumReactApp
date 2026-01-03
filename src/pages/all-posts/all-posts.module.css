@@ -6,12 +6,6 @@
     font-family: "regular walsheim";
     src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
 }
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: "regular walsheim", sans-serif;
-}
 .bodyPage{
     display: grid;
     grid-template-rows: 1fr 9fr;
