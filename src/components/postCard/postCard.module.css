@@ -5,6 +5,7 @@
     padding: clamp(3px, 1vw, 15px) clamp(10px, 2vw, 30px);
     background-color: rgba(239, 241, 254, 1);
     border-radius: 10px;
+    width: 100%;
     border: 2px rgba(228, 228, 233, 1) solid;
 }
 .postHat{

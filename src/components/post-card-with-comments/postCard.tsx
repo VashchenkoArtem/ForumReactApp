@@ -33,7 +33,17 @@ export function PostCardWithComments(props: IPropsPostCard){
                 <LikeIcon className = {style.likeIcon}></LikeIcon>
                 <h1 className={style.goToPost}>{post.likes?.length}</h1>
             </div>
-            <ReactQuill theme = "snow"></ReactQuill>
+            <div className = {style.postComments}>
+                {post.comments?.map((comment) => {
+                    return (
+                    <div key = {comment.id} className = {style.comment}>
+                        <h1 className = {style.commentAuthor}>{comment.author.firstName} {comment.author.secondName}</h1>
+                        <h1 className = {style.commentBody}>{comment.body}</h1>
+                    </div>
+                    )
+                })}
+            </div>
+            <ReactQuill placeholder="Залишити коментар" className = {style.reactQuill} theme = "snow"></ReactQuill>
         </div>
     </div>
 }

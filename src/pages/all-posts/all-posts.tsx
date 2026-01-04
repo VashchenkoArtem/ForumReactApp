@@ -6,6 +6,9 @@ import { UrlsWithFilter } from "../../components/urls-with-filter";
 import { PostListWithFilter } from "../../components/post-list-with-filters";
 import { usePostsAndTags } from "../../hooks/use-posts-and-tags";
 import { MoonLoader } from "react-spinners";
+import { useWindowWidth } from "@react-hook/window-size";
+import { Filter } from "../../components/filter";
+import { Urls } from "../../app/urls";
 
  
 export function AllPosts(){
@@ -17,6 +20,7 @@ export function AllPosts(){
     function setPosts(posts: IPost[]){
         setFilteredPosts(posts)
     }
+    const screenWidth = useWindowWidth()
     const { unfilteredPosts, setUnfilteredPosts, tags, setTags, loading } = productsAndTags
     if (loading){
         return (
@@ -31,6 +35,20 @@ export function AllPosts(){
                     size={40}
                     speedMultiplier={1}
                     />
+                </main>
+            </div>
+        )
+    }
+    if (screenWidth < 767 && !loading){
+        return (
+            <div className = {style.bodyPage}>
+                <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
+                <main className={style.pageMain}>
+                    <Urls></Urls>
+                    <div className = {style.postsWithFilter}>
+                        <Filter tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
+                        <PostListWithFilter unfilteredPosts = {unfilteredPosts} inputLikes = {inputLikes} inputTags={inputTags} setFilteredPosts={setPosts} inputData={inputData} filteredPosts = {filteredPosts}/>
+                    </div>
                 </main>
             </div>
         )

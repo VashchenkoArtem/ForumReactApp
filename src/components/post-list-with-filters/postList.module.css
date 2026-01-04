@@ -14,5 +14,6 @@
     max-height: clamp(100px, 105vh, 85vh);
     overflow-y: scroll;
     scrollbar-width: none;
+    width: 100%;
 }
 

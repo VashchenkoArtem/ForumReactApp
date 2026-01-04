@@ -23,14 +23,23 @@ export interface ILike{
     user: IUser;
     post: IPost;
 }
+export interface IComments{
+    id: number,
+    body: string,
+    createdAt: Date,
+    authorId: number,
+    author: IUser;
+    postId: number
+}
 export interface IPost {
     id?: number | undefined;
     title: string;
     description: string;
     image: string;
-    userId: number;
+    authorId: number;
     createdBy: IUser;
     likes: ILike[];
+    comments: IComments[];
     tags?: ITagOnPost[];
 }
 

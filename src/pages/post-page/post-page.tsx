@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom'
 import { Header } from '../../app/header'
 import { Urls } from '../../app/urls'
-import { useProduct } from '../../hooks/use-product'
+import { usePost } from '../../hooks/use-post'
 import style from './post-page.module.css'
 import { PostCardWithComments } from '../../components/post-card-with-comments'
 
 export function PostPage(){
     const { postId } = useParams()
-    const {post, error} = useProduct(postId)
+    const {post, error} = usePost(postId)
     if (!post){
         return (
             <div className = {style.bodyPage}>

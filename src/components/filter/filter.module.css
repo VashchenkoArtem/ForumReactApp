@@ -45,3 +45,10 @@
     font-size: clamp(8px, 2vw, 14px);
     color: rgba(120, 107, 119, 1);
 }
+
+@media (width < 767px){
+    .filter{
+        height: 130px;
+        width: 130px;
+    }
+}

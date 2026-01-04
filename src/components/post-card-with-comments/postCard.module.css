@@ -74,3 +74,39 @@
     height: fit-content;
     align-self: start;
 }
+.postComments{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2px, 2vw, 5px);
+    max-height: 50vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+}
+.comment{
+    background-color: rgba(247, 249, 255, 1);
+    width: fit-content;
+    padding: clamp(6px, 2vw, 10px) clamp(13px, 2vw, 17px);
+    border-radius: clamp(5px, 2vw, 10px);
+    border: 1px rgba(231, 232, 239, 1) solid;
+}
+.commentAuthor{
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(126, 128, 134, 1);
+    font-weight: 500;
+}
+.commentBody{
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 400;
+}
+
+.reactQuill :global(.ql-container),.reactQuill :global(.ql-toolbar) {
+    width: 40%;
+    margin-left: auto;
+}
+.reactQuill :global(.ql-container){
+    border-radius: 0px 0px 10px 10px;
+}
+.reactQuill :global(.ql-toolbar){
+    border-radius: 10px 10px 0px 0px;
+}

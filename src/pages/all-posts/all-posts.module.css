@@ -6,6 +6,12 @@
     font-family: "regular walsheim";
     src: local("regular walsheim"), url(../../shared/fonts/GTWalsheimPro-Regular.ttf);
 }
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "regular walsheim", sans-serif;
+}
 .bodyPage{
     display: grid;
     grid-template-rows: 1fr 9fr;
@@ -23,4 +29,24 @@
 .pageMainWithSpinner{
     align-items: center;
     justify-items: center;
+}
+
+@media (width < 767px){
+    .pageMain, .pageMainWithSpinner{
+        display: grid;
+        width: 100%;
+        padding: 0px;
+        padding-right: clamp(20px, 2vw, 40px);
+        grid-template-columns: 1fr 10fr;
+        column-gap: clamp(20px, 2vw, 40px);
+    }
+    .bodyPage{
+        grid-template-rows: 1fr 15fr;
+    }
+    .postsWithFilter{
+        display: flex;
+        flex-direction: column;
+        gap: clamp(5px, 2vw, 10px);
+        align-items: flex-end;
+    }
 }
