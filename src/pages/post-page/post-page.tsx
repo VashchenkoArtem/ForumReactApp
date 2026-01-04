@@ -7,7 +7,7 @@ import { PostCardWithComments } from '../../components/post-card-with-comments'
 
 export function PostPage(){
     const { postId } = useParams()
-    const {post, error} = usePost(postId)
+    const {post, error} = usePost(Number(postId))
     if (!post){
         return (
             <div className = {style.bodyPage}>
@@ -15,6 +15,7 @@ export function PostPage(){
                 <main className={style.pageMain}>
                     <Urls/>
                     <div>
+                        <h1>{error}</h1>
                         <h1>Пост не знайдено</h1>
                     </div>
                 </main>

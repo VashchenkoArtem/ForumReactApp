@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IPost } from "../shared/types";
 
-export function usePost(postId: string | undefined){
+export function usePost(postId: number | undefined){
     const [error, setError] = useState<string>("");
     const [post, setPost] = useState<IPost>();
     if (!postId){
