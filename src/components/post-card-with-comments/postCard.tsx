@@ -4,13 +4,23 @@ import { IPropsPostCard } from "../../shared/types";
 import { Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill-new";
 import  'react-quill-new/dist/quill.snow.css'
+import { useLikeOrUnlike } from "../../hooks/use-like";
+import { useState } from "react";
+import { useAddComment } from "../../hooks/use-add-comment";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
 
 export function PostCardWithComments(props: IPropsPostCard){
-    const post = props.post;
-
+    const post = props.post;    
+    const [comment, setComment] = useState<string>("")
+    const [ likesCount, setCountLikes ] = useState<number>(post.likes.length)
+    function setLikes(likesCount: number){
+        setCountLikes(likesCount)
+    }
+    const { addComment } = useAddComment(post.id,comment)
+    const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
+    const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -30,7 +40,7 @@ export function PostCardWithComments(props: IPropsPostCard){
                 })}
             </div>
             <div className={style.likeAndGoToPost}>
-                <LikeIcon className = {style.likeIcon}></LikeIcon>
+                <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
                 <h1 className={style.goToPost}>{post.likes?.length}</h1>
             </div>
             <div className = {style.postComments}>
@@ -38,12 +48,21 @@ export function PostCardWithComments(props: IPropsPostCard){
                     return (
                     <div key = {comment.id} className = {style.comment}>
                         <h1 className = {style.commentAuthor}>{comment.author.firstName} {comment.author.secondName}</h1>
-                        <h1 className = {style.commentBody}>{comment.body}</h1>
+                        <h1 className = {style.commentBody}>{comment.content}</h1>
                     </div>
                     )
                 })}
             </div>
-            <ReactQuill placeholder="Залишити коментар" className = {style.reactQuill} theme = "snow"></ReactQuill>
+            <ReactQuill 
+            placeholder="Залишити коментар" 
+            className = {style.reactQuill} 
+            theme = "snow"
+            value = {comment}
+            onChange={(event)=>{
+                setComment(event.split(">")[1].split("<")[0])
+            }}
+            ></ReactQuill>
+            <h1 onClick={addComment}>Відправити</h1>
         </div>
     </div>
 }

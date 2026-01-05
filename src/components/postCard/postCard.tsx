@@ -15,7 +15,6 @@ export function PostCard(props: IPropsPostCard){
     }
     const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
     const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
-
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>

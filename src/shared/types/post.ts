@@ -25,7 +25,7 @@ export interface ILike{
 }
 export interface IComments{
     id: number,
-    body: string,
+    content: string,
     createdAt: Date,
     authorId: number,
     author: IUser;

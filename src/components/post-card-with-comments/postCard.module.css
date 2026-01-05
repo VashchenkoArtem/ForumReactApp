@@ -110,3 +110,6 @@
 .reactQuill :global(.ql-toolbar){
     border-radius: 10px 10px 0px 0px;
 }
+.likeIcon:hover{
+    cursor: pointer;
+}

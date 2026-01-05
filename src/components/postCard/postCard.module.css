@@ -66,6 +66,9 @@
 .likeIcon{
     width: clamp(10px, 1vw, 16px);
 }
+.likeIcon:hover{
+    cursor: pointer;
+}
 .goToPost{
     font-size: clamp(12px, 2vw, 14px);
     color: rgba(0, 0, 0, 0.34);
