@@ -1,19 +1,16 @@
-import { useState } from "react"
-
-export function useAddLike(postId: number) {
-    async function addLike () {
+export function useRemoveLike(postId: number) {
+    async function removeLike () {
         try {
         const response = await fetch(
             `http://127.0.0.1:8000/posts/${postId}/likes`,
             {
-            method: "PUT",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzY3NTIwODM5LCJleHAiOjE3NjgxMjU2Mzl9.Mrxa0v9aI4HUv-VIjWrWyQCpxwDWesGEziOwdNm8wjU"
             }
             }
         )
-        const result = await response.json()
         if (!response.ok) {
             const text = await response.text()
             console.error("Server error:", text)
@@ -25,5 +22,5 @@ export function useAddLike(postId: number) {
         }
     }
 
-    return { addLike }
+    return { removeLike }
 }

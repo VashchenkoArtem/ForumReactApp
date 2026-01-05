@@ -32,7 +32,7 @@ export interface IComments{
     postId: number
 }
 export interface IPost {
-    id?: number | undefined;
+    id: number;
     title: string;
     description: string;
     image: string;

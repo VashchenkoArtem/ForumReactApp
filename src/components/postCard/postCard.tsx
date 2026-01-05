@@ -2,16 +2,20 @@ import { ICONS } from "../../shared";
 import style from "./postCard.module.css"
 import { IPropsPostCard } from "../../shared/types";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useAddLike } from "../../hooks/use-add-like";
+import {  useState } from "react";
+import { useLikeOrUnlike } from "../../hooks/use-like";
 
 const Profile = ICONS.profile
-const LikeIcon = ICONS.like
 
 export function PostCard(props: IPropsPostCard){
-    const post = props.post;
-    const [isLiked, setLike] = useState<boolean>(false)
-    const { addLike } = useAddLike()
+    const post = props.post;    
+    const [ likesCount, setCountLikes ] = useState<number>(post.likes.length)
+    function setLikes(likesCount: number){
+        setCountLikes(likesCount)
+    }
+    const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
+    const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
+
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -31,11 +35,8 @@ export function PostCard(props: IPropsPostCard){
                 })}
             </div>
             <div className={style.likeAndGoToPost}>
-                <LikeIcon className = {style.likeIcon} onClick = {()=>{
-                    addLike(1, 3)
-                    // isLiked ? setLike(false) : setLike(true)
-                }}></LikeIcon>
-                <h1 className={style.goToPost}>{post.likes?.length}</h1>
+                <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
+                <h1 className={style.goToPost}>{likesCount}</h1>
                 <Link to={`/posts/${post.id}`}>
                     <h1 className={style.goToPost}>Перейти до посту</h1>
                 </Link>
