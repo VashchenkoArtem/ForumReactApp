@@ -1,4 +1,6 @@
-export function useAddComment(postId: number, content: string){
+import { IComments } from "../shared/types/post"
+
+export function useAddComment(postId: number, content: string, setComments: (comemnts: IComments[]) => void, comments: IComments[]){
     async function addComment(){
         try{
             const response = await fetch(`http://127.0.0.1:8000/posts/${postId}/comments`,
@@ -10,7 +12,8 @@ export function useAddComment(postId: number, content: string){
             },
             body: JSON.stringify({content: content})})
             const result = await response.json()
-            console.log(result)
+            const newCommentsArray = [ ...comments, result]
+            setComments(newCommentsArray)
         }catch(error){
             console.log(error)
         }

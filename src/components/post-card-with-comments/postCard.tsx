@@ -5,8 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill-new";
 import  'react-quill-new/dist/quill.snow.css'
 import { useLikeOrUnlike } from "../../hooks/use-like";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAddComment } from "../../hooks/use-add-comment";
+import { IComments } from "../../shared/types/post";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
@@ -14,13 +15,22 @@ const LikeIcon = ICONS.like
 export function PostCardWithComments(props: IPropsPostCard){
     const post = props.post;    
     const [comment, setComment] = useState<string>("")
+    const [ comments, setComments ] = useState<IComments[]>(post.comments)
     const [ likesCount, setCountLikes ] = useState<number>(post.likes.length)
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
     function setLikes(likesCount: number){
         setCountLikes(likesCount)
     }
-    const { addComment } = useAddComment(post.id,comment)
+    function setCommentsFunc(comments: IComments[]){
+        setComments(comments)
+    }
+    useEffect(()=>{
+        messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
+    }, [comments])
+    const { addComment } = useAddComment(post.id,comment,setCommentsFunc, comments)
     const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
     const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
+    console.log(comments)
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -44,7 +54,7 @@ export function PostCardWithComments(props: IPropsPostCard){
                 <h1 className={style.goToPost}>{post.likes?.length}</h1>
             </div>
             <div className = {style.postComments}>
-                {post.comments?.map((comment) => {
+                {comments.map((comment) => {
                     return (
                     <div key = {comment.id} className = {style.comment}>
                         <h1 className = {style.commentAuthor}>{comment.author.firstName} {comment.author.secondName}</h1>
@@ -52,17 +62,26 @@ export function PostCardWithComments(props: IPropsPostCard){
                     </div>
                     )
                 })}
+                <div ref = {messagesEndRef}></div>
             </div>
             <ReactQuill 
             placeholder="Залишити коментар" 
             className = {style.reactQuill} 
             theme = "snow"
             value = {comment}
-            onChange={(event)=>{
-                setComment(event.split(">")[1].split("<")[0])
+            onChange={(value) => {
+                const div = document.createElement("div");
+                div.innerHTML = value;
+                const text = div.textContent || "";
+                setComment(text)
+            }}
+            onKeyDown={(button)=>{
+                if (button.key === "Enter"){
+                    addComment()
+                    setComment("")
+                }
             }}
             ></ReactQuill>
-            <h1 onClick={addComment}>Відправити</h1>
         </div>
     </div>
 }
