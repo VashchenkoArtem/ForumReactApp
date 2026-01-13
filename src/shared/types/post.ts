@@ -46,7 +46,4 @@ export interface IPost {
 export interface IPropsPostCard{
     post: IPost
 }
-export interface IPostsProps {
-    posts: IPost[]
-}
 

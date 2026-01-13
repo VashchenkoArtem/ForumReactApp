@@ -8,7 +8,7 @@ export function useAddComment(postId: number, content: string, setComments: (com
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzY3NTIwODM5LCJleHAiOjE3NjgxMjU2Mzl9.Mrxa0v9aI4HUv-VIjWrWyQCpxwDWesGEziOwdNm8wjU"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzY4MjkyODc3LCJleHAiOjE3Njg4OTc2Nzd9.a_FNDtg5miSX4Q2NCpF6y9xLv6sacyD9qRDr53Yh8cc"
             },
             body: JSON.stringify({content: content})})
             const result = await response.json()

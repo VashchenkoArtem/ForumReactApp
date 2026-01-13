@@ -5,12 +5,15 @@
 .posts{
     display: grid;
     flex-direction: column;
+    width: 100%;
     row-gap: clamp(1px, 0.5vw, 5px);
 }
 .postsWithFilter{
     display: flex;
     flex-direction: column;
     gap: clamp(5px, 1vw, 10px);
+    width: 100%;
+    align-items: center;
     max-height: clamp(100px, 105vh, 85vh);
     overflow-y: scroll;
     scrollbar-width: none;

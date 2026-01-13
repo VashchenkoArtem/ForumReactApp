@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import { IPost, ITag } from "../shared/types"
 
-export function usePostsAndTags(){
+export function usePosts(){
     const [ unfilteredPosts, setUnfilteredPosts] = useState<IPost[]>([])
-    const [ tags, setTags ] = useState<ITag[]>([])
-    const [loading, setLoading] = useState<boolean>(false)
+    const [ loading, setLoading ] = useState<boolean>()
     useEffect(()=>{
         async function getAllPosts(){
             try{
@@ -19,22 +18,10 @@ export function usePostsAndTags(){
                 setLoading(false)
             }
         }
-        async function getAllTags(){
-            try{
-                const response = await fetch("http://localhost:8000/tags")
-                const allTags = await response.json()
-                setTags(allTags)
-            }catch(error){
-                throw error
-            }
-        }
         getAllPosts()
-        getAllTags()
     },[])
     return {unfilteredPosts: unfilteredPosts,
             setUnfilteredPosts: setUnfilteredPosts,
-            tags: tags,
-            setTags: setTags,
-            loading: loading
+            loading
     }
 }
