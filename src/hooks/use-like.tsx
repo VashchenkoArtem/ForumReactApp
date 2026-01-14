@@ -28,7 +28,7 @@ export function useLikeOrUnlike(postId: number, setLikesCount: (likesCount: numb
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzY4MjkyODc3LCJleHAiOjE3Njg4OTc2Nzd9.a_FNDtg5miSX4Q2NCpF6y9xLv6sacyD9qRDr53Yh8cc"
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzY4Mzk0NTA2LCJleHAiOjE3Njg5OTkzMDZ9.khJ9xXEoucybxdBx_-GCcaiPu8c8wnvcuCR8RRarijY"
                 }
                 }
             )

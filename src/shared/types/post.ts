@@ -47,3 +47,9 @@ export interface IPropsPostCard{
     post: IPost
 }
 
+export interface IForm{
+    title?: string,
+    description?: string,
+    tags?: number[],
+    image?: string
+}
