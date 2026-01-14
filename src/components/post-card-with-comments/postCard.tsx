@@ -51,7 +51,7 @@ export function PostCardWithComments(props: IPropsPostCard){
             </div>
             <div className={style.likeAndGoToPost}>
                 <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
-                <h1 className={style.goToPost}>{post.likes?.length}</h1>
+                <h1 className={style.goToPost}>{likesCount}</h1>
             </div>
             <div className = {style.postComments}>
                 {comments.map((comment) => {

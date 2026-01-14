@@ -3,6 +3,7 @@ import { useTags } from "../../hooks/use-tags"
 import styles from "./create-post.module.css"
 import { IForm } from "../../shared"
 import { useCreatePost } from "../../hooks/use-create-post"
+import { useNavigate } from "react-router-dom"
 
 export function CreatePostForm(){
     const { tags } = useTags()
@@ -10,6 +11,7 @@ export function CreatePostForm(){
     const [ isSendedForm, setIsSendForm] = useState<boolean>(false)
     const [ selectedTags, setSelectedTags ] = useState<number[]>([])
     const { createPost } = useCreatePost()
+    const navigate = useNavigate()
     return (
         <div className = {styles.modal}>
             <h1 className = {styles.modalTitle}>Створення публікації</h1>
@@ -81,10 +83,10 @@ export function CreatePostForm(){
                 </div>
             </div>
             <div className = {styles.buttonContainer}>
-                <button className = {styles.button} onClick={()=>{
+                <button className = {styles.button} onClick={async()=>{
                     if (formInputs){
-                        console.log(formInputs)
-                        createPost(formInputs)
+                        const {result} = await createPost(formInputs)
+                        navigate(`/posts/${result.id}`)
                     }}}>Створити</button>
             </div>
         </div>
