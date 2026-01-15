@@ -6,7 +6,7 @@ import { ICONS } from "../../shared"
 
 
 export function Urls(props: IProps){
-    const { children } = props
+    const { children, setModalOpen } = props
     const screenWidth = useWindowWidth()
     if (screenWidth > 767){
         return (
@@ -22,7 +22,11 @@ export function Urls(props: IProps){
                             <h1 className={style.urlTitle}>Пости</h1>
                         </div>
                     </Link>
-                    <div className={style.createUrl}>
+                    <div className={style.createUrl} onClick={(event) => {
+                        event.stopPropagation()
+                        if (!setModalOpen) return
+                        setModalOpen()
+				}}>
                         <h1 className={style.urlTitle}>Створити</h1>
                     </div>
                     <div className={style.aboutUsUrl}>

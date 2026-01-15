@@ -1,5 +1,5 @@
 import style from "../all-posts/all-posts.module.css"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IPost, ITag } from "../../shared/types";
 import { HeaderWithInput } from "../../components/header-with-input";
 import { UrlsWithFilter } from "../../components/urls-with-filter";
@@ -10,25 +10,26 @@ import { useWindowWidth } from "@react-hook/window-size";
 import { Filter } from "../../components/filter";
 import { Urls } from "../../app/urls";
 import { useTags } from "../../hooks/use-tags";
+import { PostContext } from "../../context/post-context";
 
  
 export function AllPosts(){
-    const [filteredPosts, setFilteredPosts] = useState<IPost[]>([])
-    const [ inputLikes, setInputLikes ] = useState<number>(-1)
-    const [ inputTags, setInputTags ] = useState<string[]>([])
-    const [ inputData, setInputData] = useState<string>("")
+    const context = useContext(PostContext)
+    // const [filteredPosts, setFilteredPosts] = useState<IPost[]>([])
+    // const [ inputLikes, setInputLikes ] = useState<number>(-1)
+    // const [ inputTags, setInputTags ] = useState<string[]>([])
+    // const [ inputData, setInputData] = useState<string>("")
     function setPosts(posts: IPost[]){
-        setFilteredPosts(posts)
+        context?.setItems(posts)
     }
     const screenWidth = useWindowWidth()
-    const { unfilteredPosts, loading } = usePosts()
-    const { tags, setTags } = useTags()
-    if (loading){
+    // const { unfilteredPosts, loading } = usePosts()
+    if (context?.loading){
         return (
             <div className = {style.bodyPage}>
-                <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
+                <HeaderWithInput></HeaderWithInput>
                 <main className={style.pageMainWithSpinner}>
-                    <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
+                    <UrlsWithFilter/>
                     <MoonLoader
                     color="#0338bc"
                     cssOverride={{}}
@@ -40,15 +41,15 @@ export function AllPosts(){
             </div>
         )
     }
-    if (screenWidth < 767 && !loading){
+    if (screenWidth < 767 && !context?.loading){
         return (
             <div className = {style.bodyPage}>
-                <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
+                <HeaderWithInput></HeaderWithInput>
                 <main className={style.pageMain}>
                     <Urls></Urls>
                     <div className = {style.postsWithFilter}>
-                        <Filter tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
-                        <PostListWithFilter unfilteredPosts = {unfilteredPosts} inputLikes = {inputLikes} inputTags={inputTags} setFilteredPosts={setPosts} inputData={inputData} filteredPosts = {filteredPosts}/>
+                        <Filter/>
+                        <PostListWithFilter/>
                     </div>
                 </main>
             </div>
@@ -56,10 +57,10 @@ export function AllPosts(){
     }
     return (
         <div className = {style.bodyPage}>
-            <HeaderWithInput inputData={inputData} setInputData={setInputData}></HeaderWithInput>
+            <HeaderWithInput></HeaderWithInput>
             <main className={style.pageMain}>
-                <UrlsWithFilter  tags = {tags} setInputLikes={setInputLikes} inputTags={inputTags} setInputTags={setInputTags}/>
-                <PostListWithFilter unfilteredPosts = {unfilteredPosts} inputLikes = {inputLikes} inputTags={inputTags} setFilteredPosts={setPosts} inputData={inputData} filteredPosts = {filteredPosts}/>
+                <UrlsWithFilter/>
+                <PostListWithFilter/>
             </main>
         </div>
     )

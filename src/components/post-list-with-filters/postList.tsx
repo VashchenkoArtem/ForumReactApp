@@ -1,42 +1,42 @@
+import { PostContext } from "../../context/post-context";
 import { PostCard } from "../postCard";
 import style from "./postList.module.css"
-import { IProps } from "./postList.types"
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 
-export function PostListWithFilter(props: IProps){
-    const { filteredPosts, inputData, setFilteredPosts, inputLikes, inputTags, unfilteredPosts } = props
+export function PostListWithFilter(){
+    const context = useContext(PostContext)
     useEffect(() => {
-        let result = [...unfilteredPosts]
+        if (!context?.unfilteredPosts)return
+        let result = [...context?.unfilteredPosts]
 
-        if (inputData) {
+        if (context?.inputData) {
             result = result.filter(post =>
-                post.title.toLowerCase().includes(inputData.toLowerCase())
+                post.title.toLowerCase().includes(context?.inputData.toLowerCase())
             )
         }
-        if (inputLikes) {
+        if (context?.inputLikes) {
             result = result.filter((post) =>{
                 console.log(post.likes.length)
-                return post.likes.length > inputLikes
+                return post.likes.length > context?.inputLikes
         })
         }
         
-        if (inputTags) {
-            console.log(inputTags)
+        if (context?.inputTags) {
             result = result.filter(post =>
-            inputTags.every(tagName =>
+            context?.inputTags.every(tagName =>
                 post.tags?.some(t => t.tag.name === tagName)
             )
             )
 
         }
-        setFilteredPosts(result)
-    }, [inputData, inputLikes, inputTags, unfilteredPosts])
+        context?.setItems(result)
+    }, [context?.inputData, context?.inputLikes, context?.inputTags, context?.unfilteredPosts])
 
     return (
         <div className={style.postsWithFilter}>
             <div className={style.posts}>
-                { filteredPosts.map((post) => {
+                { context?.filteredItems.map((post) => {
                     return <PostCard key = {post.id} post = {post}></PostCard>
                 })}
             </div>

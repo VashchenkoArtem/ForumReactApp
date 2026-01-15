@@ -30,7 +30,22 @@
     align-items: center;
     justify-items: center;
 }
-
+.bodyWithModal {
+    position: relative;
+}
+.bluredBodyPage{
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 90;
+}
+.modal{
+    position: fixed;
+    z-index: 100;
+}
+a{
+    text-decoration: none;
+}
 @media (width < 767px){
     .pageMain, .pageMainWithSpinner{
         display: grid;

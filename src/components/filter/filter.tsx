@@ -1,10 +1,11 @@
 import style from "./filter.module.css"
 import { ICONS } from "../../shared"
-import { IUrlsProps } from "../../shared/types/urls"
+import { useContext } from "react"
+import { PostContext } from "../../context/post-context"
 
 const ArrowUp = ICONS.arrowUp
-export function Filter(props: IUrlsProps){
-    const { tags, setInputLikes, setInputTags, inputTags } = props
+export function Filter(){
+    const context = useContext(PostContext)
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
@@ -21,7 +22,7 @@ export function Filter(props: IUrlsProps){
                             id="likes100" 
                             onChange={(event)=>{
                             const input = Number(event.target.value)
-                            setInputLikes(input)
+                            context?.setInputLikes(input)
                         }} />
                         <label className={style.filterLabel} htmlFor="likes100">Більше 100 лайків</label>
                     </div>
@@ -33,7 +34,7 @@ export function Filter(props: IUrlsProps){
                         id="likes50"                         
                         onChange={(event)=>{
                             const input = Number(event.target.value)
-                            setInputLikes(input)
+                            context?.setInputLikes(input)
                         }} />
                         <label className={style.filterLabel} htmlFor="likes50">Більше 50 лайків</label>
                     </div>
@@ -45,7 +46,7 @@ export function Filter(props: IUrlsProps){
                         id="likesMoreThan0"
                         onChange={(event)=>{
                             const input = Number(event.target.value)
-                            setInputLikes(input)
+                            context?.setInputLikes(input)
                         }} />
                         <label className={style.filterLabel} htmlFor="likesMoreThan0">Більше 0 лайків</label>
                     </div>
@@ -57,7 +58,7 @@ export function Filter(props: IUrlsProps){
                         id="likes0" 
                         onChange={(event)=>{
                             const input = Number(event.target.value)
-                            setInputLikes(input)
+                            context?.setInputLikes(input)
                         }} />
                         <label className={style.filterLabel} htmlFor="likes0">0 лайків</label>
                     </div>
@@ -67,7 +68,7 @@ export function Filter(props: IUrlsProps){
             <div className={style.filterContainer}>
                 <h1 className={style.filterTitle}>Теги</h1>
                 <div className={style.containerButtons}>
-                    { tags.map((tag) => {
+                    { context?.tags.map((tag) => {
                         return <div key = {tag.id} className={style.containerButton}>
                                     <input className={style.inputButton}
                                     type="checkbox" 
@@ -77,9 +78,9 @@ export function Filter(props: IUrlsProps){
                                     onChange={(event)=>{
                                         const isChecked = event.target.checked;
                                         if (isChecked){
-                                            setInputTags([...inputTags, tag.name])
+                                            context?.setInputTags([...context?.inputTags, tag.name])
                                         }else if (!isChecked){
-                                            setInputTags(inputTags.filter((inputTag) => inputTag !== tag.name))
+                                            context?.setInputTags(context?.inputTags.filter((inputTag) => inputTag !== tag.name))
                                         }
                                     }}/>
                                     <label className={style.filterLabel} htmlFor={"tag" + tag.id}>{tag.name}</label>

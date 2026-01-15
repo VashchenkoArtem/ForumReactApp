@@ -1,9 +1,10 @@
-import { IInputProps } from "../../shared/types";
+import { useContext } from "react";
+import { PostContext } from "../../context/post-context";
 import style from "./input.module.css"
 
 
-export function InputSearch(props: IInputProps){
-    const { inputData, setInputData } = props
+export function InputSearch(){
+    const context = useContext(PostContext)
 
     return  <div className = {style.hatInputContainer}>
                 <input 
@@ -11,10 +12,10 @@ export function InputSearch(props: IInputProps){
                 className = {style.inputSearch} 
                 placeholder="Знайти пост" 
                 name = "search" 
-                value = {inputData}
+                value = {context?.inputData}
                 onChange = {(event)=>{
                     const input = event.target.value;
-                    setInputData(input)
+                    context?.setInputData(input)
                 }}/>
             </div>
 }
