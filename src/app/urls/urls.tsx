@@ -4,25 +4,29 @@ import { Link } from "react-router-dom"
 import {useWindowWidth} from '@react-hook/window-size'
 import { ICONS } from "../../shared"
 import { ChooseLanguage } from "../../components/chooseLanguage"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { TranslationContext } from "../../context/localizationContext"
 
 
 export function Urls(props: IProps){
     const { children, setModalOpen } = props
     const screenWidth = useWindowWidth()
     const [ isOpenLanguage, setIsOpenLanguage ] = useState<boolean>(false)
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     if (screenWidth > 767){
         return (
             <div className={style.mainUrls}>
                 <div className={style.urls}>
                     <Link to = "/">
                         <div className={style.mainUrl}>
-                            <h1 className={style.mainUrlTitle}>Головна</h1>
+                            <h1 className={style.mainUrlTitle}>{translate("mainUrl")}</h1>
                         </div>
                     </Link>
                     <Link to = "/posts">
                         <div className={style.allPostsUrl}>
-                            <h1 className={style.urlTitle}>Пости</h1>
+                            <h1 className={style.urlTitle}>{translate("postsUrl")}</h1>
                         </div>
                     </Link>
                     <div className={style.createUrl} onClick={(event) => {
@@ -30,10 +34,10 @@ export function Urls(props: IProps){
                         if (!setModalOpen) return
                         setModalOpen()
 				}}>
-                        <h1 className={style.urlTitle}>Створити</h1>
+                        <h1 className={style.urlTitle}>{translate("createButton")}</h1>
                     </div>
                     <div className={style.aboutUsUrl}>
-                        <h1 className={style.urlTitle}>Про нас</h1>
+                        <h1 className={style.urlTitle}>{translate("aboutUrl")}</h1>
                     </div>
                     <div 
                     className={style.languageUrl}
@@ -41,7 +45,7 @@ export function Urls(props: IProps){
                         setIsOpenLanguage(!isOpenLanguage)
                     }}
                     >
-                        <h1 className={style.urlTitle}>Мова</h1>
+                        <h1 className={style.urlTitle}>{translate("languageUrl")}</h1>
                         <ChooseLanguage isOpenLanguage = {isOpenLanguage} />
                     </div>
                 </div>

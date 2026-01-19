@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { Urls } from "../../app/urls"
-import { PostContext } from "../../context/post-context"
+import { PostContext } from "../../context/postContext"
 import { Filter } from "../filter"
 
 

@@ -1,4 +1,4 @@
-import { PostContext } from "../../context/post-context";
+import { PostContext } from "../../context/postContext";
 import { PostCard } from "../postCard";
 import style from "./postList.module.css"
 import { useContext, useEffect } from "react";

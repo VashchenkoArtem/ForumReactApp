@@ -1,10 +1,14 @@
 import { useContext } from "react"
 import { InputSearch } from "../input"
 import style from "./header.module.css"
-import { PostContext } from "../../context/post-context"
+import { PostContext } from "../../context/postContext"
+import { TranslationContext } from "../../context/localizationContext"
 
   
 export function HeaderWithInput(){
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return (
         <header className = {style.pageHat}>
             <div className = {style.logoContainer}>
@@ -12,7 +16,7 @@ export function HeaderWithInput(){
             </div>
             <InputSearch></InputSearch>
             <div className = {style.hatProfile}>
-                <h1 className = {style.enterToAccount}>Увійти</h1>
+                <h1 className = {style.enterToAccount}>{translate("EnterToAccount")}</h1>
             </div>
         </header>
     )

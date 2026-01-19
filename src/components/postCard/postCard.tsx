@@ -2,8 +2,9 @@ import { ICONS } from "../../shared";
 import style from "./postCard.module.css"
 import { IPropsPostCard } from "../../shared/types";
 import { Link } from "react-router-dom";
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { useLikeOrUnlike } from "../../hooks/use-like";
+import { TranslationContext } from "../../context/localizationContext";
 
 const Profile = ICONS.profile
 
@@ -15,6 +16,9 @@ export function PostCard(props: IPropsPostCard){
     }
     const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
     const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -37,7 +41,7 @@ export function PostCard(props: IPropsPostCard){
                 <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
                 <h1 className={style.goToPost}>{likesCount}</h1>
                 <Link to={`/posts/${post.id}`}>
-                    <h1 className={style.goToPost}>Перейти до посту</h1>
+                    <h1 className={style.goToPost}>{translate("goToPostButton")}</h1>
                 </Link>
             </div>
         </div>

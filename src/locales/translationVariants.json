@@ -1,0 +1,102 @@
+{
+    "EnterToAccount": {
+        "ua": "Увійти",
+        "en": "Sign in",
+        "pl": "Login"
+    },
+    "mainUrl": {
+        "ua": "Головна",
+        "en": "Main",
+        "pl": "Główna"
+    },
+    "postsUrl": {
+        "ua": "Пости",
+        "en": "Posts",
+        "pl": "Posty"
+    },
+    "createButton": {
+        "ua": "Створити",
+        "en": "Create",
+        "pl": "Utwórz"
+    },
+    "aboutUrl": {
+        "ua": "Про нас",
+        "en": "About us",
+        "pl": "O nas"
+    },
+    "languageUrl": {
+        "ua": "Мова",
+        "en": "Language",
+        "pl": "Język"
+    },
+    "goToPostButton": {
+        "ua": "Перейти до посту",
+        "en": "Go to post",
+        "pl": "Przejdź do wpisu"
+    },
+    "filterButton": {
+        "ua": "Фільтр",
+        "en": "Filter",
+        "pl": "Filtr"
+    },
+    "filterByLikesTitle": {
+        "ua": "Лайки",
+        "en": "Likes",
+        "pl": "Upodobania"
+    },
+    "filterMoreThan100Likes": {
+        "ua": "Більше 100 лайків",
+        "en": "More than 100 likes",
+        "pl": "Ponad 100 polubień"
+    },
+    "filterMoreThan50Likes": {
+        "ua": "Більше 50 лайків",
+        "en": "More than 50 likes",
+        "pl": "Ponad 50 polubień"
+    },
+    "filterMoreThan0Likes": {
+        "ua": "Більше 0 лайків",
+        "en": "More than 0 likes",
+        "pl": "Ponad 0 polubień"
+    },
+    "filter0Likes": {
+        "ua": "0 лайків",
+        "en": "0 likes",
+        "pl": "0 polubień"
+    },
+    "filterByTagsTitle": {
+        "ua": "Теги",
+        "en": "Tags",
+        "pl": "Tagi"
+    },
+    "searchPostButton": {
+        "ua": "Знайти пост",
+        "en": "Search post",
+        "pl": "Znajdź post"
+    },
+    "titleOfCreationPostModal": {
+        "ua": "Створення публікації",
+        "en": "Creating post",
+        "pl": "Utwórz publikację"
+    },
+    "titleOfCreationPost":{
+        "ua": "Назва публікації",
+        "en": "Post title",
+        "pl": "Tytuł postu"
+    },
+    "textOfCreationPost":{
+        "ua": "Текст публікації",
+        "en": "Post text",
+        "pl": "Opublikuj tekst"
+    },
+    "addNewTagButton":{
+        "ua": "Додати новий тег",
+        "en": "Create a new tag",
+        "pl": "Utwórz nowy tag"
+    },
+    "writeACommentPlaceholder":{
+        "ua": "Залишити коментар",
+        "en": "Write a comment",
+        "pl": "Napisz komentarz"
+    }
+}

@@ -1,16 +1,20 @@
 import style from "./filter.module.css"
 import { ICONS } from "../../shared"
 import { useContext, useState } from "react"
-import { PostContext } from "../../context/post-context"
+import { PostContext } from "../../context/postContext"
+import { TranslationContext } from "../../context/localizationContext"
 
 const ArrowUp = ICONS.arrowUp
 export function Filter(){
     const context = useContext(PostContext)
     const [isOpenFilter, setIsClosedFilter] = useState<boolean>(false)
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return (
         <div className={style.filter}>
             <div className={style.titleFilterContainer}>
-                <h1 className={style.titleFilter}>Фільтр</h1>
+                <h1 className={style.titleFilter}>{translate("filterButton")}</h1>
                 <ArrowUp
                 className={`${style.titleArrow} ${!isOpenFilter && style.rotatedArrow}`}
                 onClick={()=>{
@@ -21,7 +25,7 @@ export function Filter(){
             { isOpenFilter &&
                 <div className={style.filterContainers}>
                     <div className={style.filterContainer}>
-                        <h1 className={style.filterTitle}>Лайки</h1>
+                        <h1 className={style.filterTitle}>{translate("filterByLikesTitle")}</h1>
                         <div className={style.containerButtons}>
                             <div className={style.containerButton}>
                                 <input className={style.inputButton}type="radio" 
@@ -32,9 +36,8 @@ export function Filter(){
                                     const input = Number(event.target.value)
                                     context?.setInputLikes(input)
                                 }} />
-                                <label className={style.filterLabel} htmlFor="likes100">Більше 100 лайків</label>
+                                <label className={style.filterLabel} htmlFor="likes100">{translate("filterMoreThan100Likes")}</label>
                             </div>
-
                             <div className={style.containerButton}>
                                 <input className={style.inputButton}type="radio" 
                                 value= "50" 
@@ -44,7 +47,7 @@ export function Filter(){
                                     const input = Number(event.target.value)
                                     context?.setInputLikes(input)
                                 }} />
-                                <label className={style.filterLabel} htmlFor="likes50">Більше 50 лайків</label>
+                                <label className={style.filterLabel} htmlFor="likes50">{translate("filterMoreThan50Likes")}</label>
                             </div>
 
                             <div className={style.containerButton}>
@@ -56,7 +59,7 @@ export function Filter(){
                                     const input = Number(event.target.value)
                                     context?.setInputLikes(input)
                                 }} />
-                                <label className={style.filterLabel} htmlFor="likesMoreThan0">Більше 0 лайків</label>
+                                <label className={style.filterLabel} htmlFor="likesMoreThan0">{translate("filterMoreThan0Likes")}</label>
                             </div>
 
                             <div className={style.containerButton}>
@@ -68,13 +71,13 @@ export function Filter(){
                                     const input = Number(event.target.value)
                                     context?.setInputLikes(input)
                                 }} />
-                                <label className={style.filterLabel} htmlFor="likes0">0 лайків</label>
+                                <label className={style.filterLabel} htmlFor="likes0">{translate("filter0Likes")}</label>
                             </div>
                         </div>
 
                     </div>
                     <div className={style.filterContainer}>
-                        <h1 className={style.filterTitle}>Теги</h1>
+                        <h1 className={style.filterTitle}>{translate("filterByTagsTitle")}</h1>
                         <div className={style.containerButtons}>
                             { context?.tags.map((tag) => {
                                 return <div key = {tag.id} className={style.containerButton}>

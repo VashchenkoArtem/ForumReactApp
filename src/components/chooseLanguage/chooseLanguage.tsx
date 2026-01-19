@@ -1,14 +1,28 @@
+import { useContext } from "react"
 import styles from "./chooseLanguage.module.css"
 import { ILanguageProps } from "./chooseLanguage.types"
+import { TranslationContext } from "../../context/localizationContext"
 
 export function ChooseLanguage(props: ILanguageProps){
     const { isOpenLanguage } = props
-    if (!isOpenLanguage) return null
+    const translationContext = useContext(TranslationContext)
+    if (!isOpenLanguage || !translationContext) return null
+    const {locale, setLocaleTranslation} = translationContext
     return (
         <div className = {styles.languageContainer}>
-            <select name="language" className={styles.languageSelect}>
-                <option value="ukrainian">Українська</option>
-                <option value="english">English</option>
+            <select 
+            name="language" 
+            className={styles.languageSelect} 
+            value = {locale}
+            onClick={(event) => {
+                event.stopPropagation()
+            }}
+            onChange={(event) => {
+                setLocaleTranslation(event.target.value)
+            }}>
+                <option value="ua">Українська</option>
+                <option value="en">English</option>
+                <option value="pl">Polski</option>
             </select>
         </div>
     )

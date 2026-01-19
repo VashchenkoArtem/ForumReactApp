@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useTags } from "../../hooks/use-tags"
 import styles from "./create-post.module.css"
 import { IForm } from "../../shared"
 import { useCreatePost } from "../../hooks/use-create-post"
 import { useNavigate } from "react-router-dom"
+import { TranslationContext } from "../../context/localizationContext"
 
 export function CreatePostForm(){
     const { tags } = useTags()
     const [ formInputs, setFormInputs ] = useState<IForm>()
-    const [ isSendedForm, setIsSendForm] = useState<boolean>(false)
     const [ selectedTags, setSelectedTags ] = useState<number[]>([])
     const { createPost } = useCreatePost()
     const navigate = useNavigate()
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return (
         <div className = {styles.modal}>
-            <h1 className = {styles.modalTitle}>Створення публікації</h1>
+            <h1 className = {styles.modalTitle}>{translate("titleOfCreationPostModal")}</h1>
             <div className = {styles.inputs}>
                 <div className = {styles.inputContainer}>
-                    <h1 className = {styles.inputTitle}>Назва публікації</h1>
+                    <h1 className = {styles.inputTitle}>{translate("titleOfCreationPost")}</h1>
                     <input className = {`${styles.input} ${styles.inputEnterTitle}`} 
                     onChange = {(event)=>{
                         const input = event.target.value
@@ -26,7 +29,7 @@ export function CreatePostForm(){
                     }} type="text"/>
                 </div>
                 <div>
-                    <h1 className = {styles.inputTitle}>Текст публікації</h1>
+                    <h1 className = {styles.inputTitle}>{translate("textOfCreationPost")}</h1>
                     <textarea className = {`${styles.input} ${styles.inputEnterText}`}
                     onChange = {(event)=>{
                         const input = event.target.value
@@ -35,7 +38,7 @@ export function CreatePostForm(){
                     }}/>
                 </div>
                 <div>
-                    <h1 className = {styles.inputTitle}>Теги</h1>
+                    <h1 className = {styles.inputTitle}>{translate("filterByTagsTitle")}</h1>
                     <div className={styles.tags}>
                         { tags.map((tag) => {
                             return (
@@ -67,7 +70,7 @@ export function CreatePostForm(){
                             </label>)
                         })}
                     </div>
-                    <button className={styles.tagName}>Додати новий тег</button>
+                    <button className={styles.tagName}>{translate("addNewTagButton")}</button>
                 </div>
                 <div>
                     <input type="file" hidden id = "inputFile" 
@@ -75,7 +78,6 @@ export function CreatePostForm(){
                         const input = event.target.value
                         const newForm = { ...formInputs, image: input}
                         setFormInputs(newForm)
-                        console.log(formInputs)
                     }}/>
                     <label htmlFor="inputFile" className = {styles.addPhoto}>
                         <h1 className = {styles.plusPhoto}>+</h1>
@@ -87,7 +89,7 @@ export function CreatePostForm(){
                     if (formInputs){
                         const {result} = await createPost(formInputs)
                         navigate(`/posts/${result.id}`)
-                    }}}>Створити</button>
+                    }}}>{translate("createButton")}</button>
             </div>
         </div>
     )

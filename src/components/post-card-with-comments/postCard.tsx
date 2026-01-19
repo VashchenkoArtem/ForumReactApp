@@ -5,9 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill-new";
 import  'react-quill-new/dist/quill.snow.css'
 import { useLikeOrUnlike } from "../../hooks/use-like";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useAddComment } from "../../hooks/use-add-comment";
 import { IComments } from "../../shared/types/post";
+import { TranslationContext } from "../../context/localizationContext";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
@@ -30,7 +31,9 @@ export function PostCardWithComments(props: IPropsPostCard){
     const { addComment } = useAddComment(post.id,comment,setCommentsFunc, comments)
     const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
     const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
-    console.log(comments)
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return  <div className={style.post}>
         <div className={style.postHat}>
             <div className={style.postAuthor}>
@@ -65,7 +68,7 @@ export function PostCardWithComments(props: IPropsPostCard){
                 <div ref = {messagesEndRef}></div>
             </div>
             <ReactQuill 
-            placeholder="Залишити коментар" 
+            placeholder= {translate("writeACommentPlaceholder")}
             className = {style.reactQuill} 
             theme = "snow"
             value = {comment}

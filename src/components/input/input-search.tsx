@@ -1,16 +1,19 @@
 import { useContext } from "react";
-import { PostContext } from "../../context/post-context";
+import { PostContext } from "../../context/postContext";
 import style from "./input.module.css"
+import { TranslationContext } from "../../context/localizationContext";
 
 
 export function InputSearch(){
     const context = useContext(PostContext)
-
+    const translationContext = useContext(TranslationContext)
+    if (!translationContext) return null
+    const translate = translationContext.translate
     return  <div className = {style.hatInputContainer}>
                 <input 
                 type="text" 
                 className = {style.inputSearch} 
-                placeholder="Знайти пост" 
+                placeholder={translate("searchPostButton")}
                 name = "search" 
                 value = {context?.inputData}
                 onChange = {(event)=>{
