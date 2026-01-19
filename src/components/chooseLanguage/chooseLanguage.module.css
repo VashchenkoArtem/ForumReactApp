@@ -1,0 +1,14 @@
+.languageContainer{
+    width: 100%;
+}
+.languageSelect{
+    width: 100%;
+    height: 2rem;
+    border-radius: 5px;
+    padding: clamp(2px, 2vw, 5px);
+    background-color: rgb(224, 228, 247);
+    color: rgba(102, 76, 99, 1);
+}
+option{
+    border-radius: 5px;
+}

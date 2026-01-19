@@ -20,7 +20,6 @@
 .allPostsUrl,.aboutUsUrl,.createUrl,.languageUrl{
     display: flex;
     align-items: center;
-    height: calc(1.5vw + 2.3vh);
     border-radius: clamp(1px, 0.5vw, 5px);
     border: 1px rgba(228, 228, 233, 1) solid;
     background-color: rgba(238, 241, 255, 1);
@@ -51,6 +50,15 @@
 }
 .urlTag{
     all: unset;
+}
+.languageUrl{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(5px, 2vw, 9px) clamp(10px, 2vw, 20px);
+    gap: clamp(5px, 2vw, 10px);
 }
 @media (width < 767px){
     .burgerMenu{

@@ -3,11 +3,14 @@ import { IProps } from "./urls.types"
 import { Link } from "react-router-dom"
 import {useWindowWidth} from '@react-hook/window-size'
 import { ICONS } from "../../shared"
+import { ChooseLanguage } from "../../components/chooseLanguage"
+import { useState } from "react"
 
 
 export function Urls(props: IProps){
     const { children, setModalOpen } = props
     const screenWidth = useWindowWidth()
+    const [ isOpenLanguage, setIsOpenLanguage ] = useState<boolean>(false)
     if (screenWidth > 767){
         return (
             <div className={style.mainUrls}>
@@ -32,8 +35,14 @@ export function Urls(props: IProps){
                     <div className={style.aboutUsUrl}>
                         <h1 className={style.urlTitle}>Про нас</h1>
                     </div>
-                    <div className={style.languageUrl}>
+                    <div 
+                    className={style.languageUrl}
+                    onClick={()=>{
+                        setIsOpenLanguage(!isOpenLanguage)
+                    }}
+                    >
                         <h1 className={style.urlTitle}>Мова</h1>
+                        <ChooseLanguage isOpenLanguage = {isOpenLanguage} />
                     </div>
                 </div>
                 { children }

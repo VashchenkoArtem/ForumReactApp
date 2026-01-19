@@ -1,3 +1,7 @@
+*{
+    user-select: none;
+}
+
 .filter{
     display: flex;
     flex-direction: column;
@@ -6,6 +10,7 @@
     border-radius: clamp(5px, 2vh, 10px);
     gap: clamp(2px, 1vw, 10px);
     border: 2px rgba(228, 228, 233, 1) solid;
+    height: min-content;
 }
 .titleFilterContainer{
     display: flex;
@@ -19,6 +24,7 @@
 }
 .titleArrow{
     width: clamp(6px, 2vw, 12px);
+    cursor: pointer;
 }
 .filterContainer{
     display: flex;
@@ -45,7 +51,9 @@
     font-size: clamp(8px, 2vw, 14px);
     color: rgba(120, 107, 119, 1);
 }
-
+.rotatedArrow{
+    rotate: 180deg;
+}
 @media (width < 767px){
     .filter{
         height: 130px;
