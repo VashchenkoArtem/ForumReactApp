@@ -1,0 +1,6 @@
+.pageMain{
+    display: grid;
+    padding: 0px clamp(40px, 2vw, 78px);
+    grid-template-columns: 1fr 5fr;
+    column-gap: clamp(40px, 2vw, 60px);
+}

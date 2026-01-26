@@ -15,25 +15,13 @@ export function PostPage(){
     }
     if (!post){
         return (
-            <div className = {style.bodyPage}>
-                <Header></Header>
-                <main className={style.pageMain}>
-                    <Urls setModalOpen={handleInputFocus}/>
-                    <div>
-                        <h1>{error}</h1>
-                        <h1>Пост не знайдено</h1>
-                    </div>
-                </main>
-            </div>       
+            <div>
+                <h1>{error}</h1>
+                <h1>Пост не знайдено</h1>
+            </div>    
         )
     }
     return (
-        <div className = {style.bodyPage}>
-            <Header></Header>
-            <main className={style.pageMain}>
-                <Urls setModalOpen={handleInputFocus}/>
-               <PostCardWithComments post = {post}/>
-            </main>
-        </div>
+        <PostCardWithComments post = {post}/>
     )
 }

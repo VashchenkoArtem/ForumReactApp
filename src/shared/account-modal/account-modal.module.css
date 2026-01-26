@@ -1,0 +1,19 @@
+.accountModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(10px, 2vw, 14px);
+    padding: clamp(13px, 2vw, 23px) clamp(33px, 2vw, 43px);
+    background-color: rgba(239, 241, 254, 1);
+    border: 1px rgba(228, 228, 233, 1) solid;
+    border-radius: 10px;
+}
+.sendButton{
+    padding: clamp(5px, 2vw, 10px) clamp(40px, 2vw, 56px);
+    background-color: rgba(251, 252, 255, 1);
+    color: rgba(83, 46, 78, 1);
+    font-size: clamp(18px, 2vw, 24px);
+    border: 1px rgba(228, 228, 233, 1) solid;
+    border-radius: 10px;
+    cursor: pointer;
+}

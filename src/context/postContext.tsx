@@ -15,6 +15,9 @@ interface IPostContext{
     setInputData: (data: string) => void
     loading: boolean | undefined
     tags: ITag[]
+    isModalOpen: boolean
+    handleInputFocus: () => void
+    closeModal: () => void
 }
 export const PostContext = createContext<IPostContext | null>(null)
 
@@ -30,11 +33,16 @@ export function PostContextProvider(props: IPostContextProviderProps){
     const [ inputData, setInputData] = useState<string>("")
     const { unfilteredPosts, loading } = usePosts()
     const { tags, setTags } = useTags()
+    const [isModalOpen, setModalOpen] = useState<boolean>(false)
+    const closeModal = () => setModalOpen(false)
+    function handleInputFocus(){
+        setModalOpen(!isModalOpen)
+    }
     function setItems(posts: IPost[]){
         setFilteredItems(posts)
     }
     return (
-        <PostContext value = {{unfilteredPosts, filteredItems, inputLikes, inputTags, inputData, setItems, setInputLikes, setInputData, setInputTags, loading, tags}}>
+        <PostContext value = {{unfilteredPosts, filteredItems, inputLikes, inputTags, inputData, setItems, setInputLikes, setInputData, setInputTags, loading, tags, handleInputFocus, isModalOpen, closeModal}}>
             {children}
         </PostContext>
     )
