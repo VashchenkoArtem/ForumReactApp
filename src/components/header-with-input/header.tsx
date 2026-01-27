@@ -3,6 +3,7 @@ import { InputSearch } from "../input"
 import style from "./header.module.css"
 import { PostContext } from "../../context/postContext"
 import { TranslationContext } from "../../context/localizationContext"
+import { Link } from "react-router-dom"
 
   
 export function HeaderWithInput(){
@@ -12,11 +13,11 @@ export function HeaderWithInput(){
     return (
         <header className = {style.pageHat}>
             <div className = {style.logoContainer}>
-                <h1 className = {style.hatLogo}>LOGO</h1>
+                <Link to = "/" className = {style.hatLogo}>LOGO</Link>
             </div>
             <InputSearch></InputSearch>
             <div className = {style.hatProfile}>
-                <h1 className = {style.enterToAccount}>{translate("EnterToAccount")}</h1>
+                <Link to = "/login" className = {style.enterToAccount}>{translate("EnterToAccount")}</Link>
             </div>
         </header>
     )

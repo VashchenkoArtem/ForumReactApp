@@ -38,7 +38,7 @@ export function PostCardWithComments(props: IPropsPostCard){
         <div className={style.postHat}>
             <div className={style.postAuthor}>
                 <Profile className={style.postAuthorAvatar}></Profile>
-                <h1 className={style.postAuthorName}>{post.createdBy.firstName}</h1>
+                <h1 className={style.postAuthorName}>{post.createdBy.name}</h1>
             </div>
             <div className = {style.line}></div>
         </div>
@@ -60,7 +60,7 @@ export function PostCardWithComments(props: IPropsPostCard){
                 {comments.map((comment) => {
                     return (
                     <div key = {comment.id} className = {style.comment}>
-                        <h1 className = {style.commentAuthor}>{comment.author.firstName} {comment.author.secondName}</h1>
+                        <h1 className = {style.commentAuthor}>{comment.author.name}</h1>
                         <h1 className = {style.commentBody}>{comment.content}</h1>
                     </div>
                     )

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import style from "./header.module.css"
 import { TranslationContext } from "../../context/localizationContext"
+import { Link } from "react-router-dom"
 
   
 export function Header(){
@@ -10,10 +11,10 @@ export function Header(){
     return (
         <header className = {style.pageHat}>
             <div className = {style.logoContainer}>
-                <h1 className = {style.hatLogo}>LOGO</h1>
+                <Link to = "/" className = {style.hatLogo}>LOGO</Link>
             </div>
             <div className = {style.hatProfile}>
-                <h1 className = {style.enterToAccount}>{translate("EnterToAccount")}</h1>
+                <Link to = "/login" className = {style.enterToAccount}>{translate("EnterToAccount")}</Link>
             </div>
         </header>
     )

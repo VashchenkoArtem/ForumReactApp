@@ -20,8 +20,10 @@
     color: rgba(103, 87, 101, 0.8);
     font-size: clamp(12px, 2vw, 16px);
 }
-a{
+.goToRegistration, .goToLogin{
     text-decoration: underline;
+}
+a{
     color: rgba(103, 87, 101, 0.8);
 }
 .nameAndAvatar{

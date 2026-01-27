@@ -12,8 +12,7 @@ export interface ITagOnPost{
 }
 export interface IUser{
     id: number;
-    firstName: string;
-    secondName: string;
+    name: string;
     email: string;
 }
 export interface ILike{

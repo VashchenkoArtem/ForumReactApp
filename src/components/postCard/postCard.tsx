@@ -23,7 +23,7 @@ export function PostCard(props: IPropsPostCard){
         <div className={style.postHat}>
             <div className={style.postAuthor}>
                 <Profile className={style.postAuthorAvatar}></Profile>
-                <h1 className={style.postAuthorName}>{post.createdBy.firstName}</h1>
+                <h1 className={style.postAuthorName}>{post.createdBy.name}</h1>
             </div>
             <div className = {style.line}></div>
         </div>
