@@ -1,0 +1,95 @@
+.pageMain{
+    display: grid;
+    padding: 0px clamp(40px, 2vw, 78px);
+    grid-template-columns: 1fr 5fr;
+    column-gap: clamp(40px, 2vw, 60px);
+}
+.mainContent{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 41%;
+    width: 80%;
+    column-gap: clamp(30px, 2vw, 42px);
+    padding:  clamp(15px, 2vw, 25px) clamp(30px, 2vw, 45px);
+    border-radius: 10px;
+    background-color: rgba(238, 241, 255, 1);
+}
+.avatarContainer, .profileInfoContainer, .editProfileButtonContainer{
+    height: 100%;
+}
+.avatarContainer{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(5px, 2vw, 10px);
+}
+.containerTitle{
+    font-family: "light walsheim";
+    font-size: clamp(26px, 2vw, 32px);
+    color: rgba(99, 83, 95, 1);
+}
+.containerContent{
+    display: flex;
+    flex-direction: column;
+}
+.avatarInformation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(5px, 2vw, 10px);
+    padding: clamp(10px, 2vw, 15px) clamp(20px, 2vw, 25px);
+    background-color: rgba(250, 248, 255, 0.59);
+    border-radius: 7px;
+    border: 1px rgba(236, 235, 241, 1) solid;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+}
+.changeAvatarButton{
+    color: rgba(64, 42, 47, 1);
+    font-family: "light walsheim";
+    font-size: clamp(10px, 2vw, 16px);
+    padding: clamp(1px, 2vw, 3px) clamp(5px, 2vw, 10px);
+    border-radius: 5px;
+    background-color: rgba(238, 241, 255, 1);
+    border: 1px rgba(236, 235, 241, 1) solid;
+}
+.profileInfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profileInfoInputs{
+    width: 100%;
+    gap: clamp(5px, 2vw, 10px);
+}
+.profileInfoInputLabel{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: rgba(103, 87, 102, 1);
+    font-size: clamp(18px, 2vw, 24px);
+}
+.profileInput{
+    height: clamp(30px, 5vh, 42px);
+    border: 1px solid rgba(228, 228, 233, 1);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: clamp(14px, 2vw, 18px);
+    color: rgba(120, 107, 119, 1);
+}
+.editProfileButtonContainer{
+    display: flex;
+    align-items: flex-end;
+}
+.editProfileButton{
+    width: 90%;
+    height: clamp(42px, 2vw, 50px);
+    color: rgba(83, 46, 78, 1);
+    border-radius: 5px;
+    font-size: clamp(18px, 2vw, 24px);
+    border: 1px solid rgba(228, 228, 233, 1);
+    background-color: white;
+    padding: 6px;
+}

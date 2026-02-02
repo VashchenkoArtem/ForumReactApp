@@ -8,7 +8,8 @@ import { ReactComponent as create } from "../assets/icons/create.svg"
 import { ReactComponent as about } from "../assets/icons/about.svg"
 import { ReactComponent as language } from "../assets/icons/language.svg"
 import { ReactComponent as filledLike } from "../assets/icons/filledLike.svg"
+import { ReactComponent as pusheen } from "../assets/icons/pusheen.svg"
 
 export const ICONS = {
-    arrowUp, like, profile, search, main, posts, create, about, language, filledLike
+    arrowUp, like, profile, search, main, posts, create, about, language, filledLike, pusheen
 }

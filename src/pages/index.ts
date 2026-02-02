@@ -1,3 +1,4 @@
+export { ProfilePage } from "./profile-page";
 export { LoginPage } from "./login";
 export { MainPage } from "./main-page";
 export { RegistrationPage } from "./registration";
