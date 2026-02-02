@@ -98,5 +98,85 @@
         "ua": "Залишити коментар",
         "en": "Write a comment",
         "pl": "Napisz komentarz"
+    },
+    "authorizationPageTitle": {
+        "ua": "Авторизація",
+        "en": "Sign in",
+        "pl": "Upoważnienie"
+    },
+    "isRegistred": {
+        "ua": "Ще не маєте акаунту?",
+        "en": "Don't have an account yet?",
+        "pl": "Nie masz jeszcze konta?"
+    },
+    "registerNow": {
+        "ua": "Тоді ви можете зареєструватись",
+        "en": "Then you can register",
+        "pl": "Następnie możesz się zarejestrować"
+    },
+    "registerThere": {
+        "ua": "ось тут",
+        "en": "there",
+        "pl": "właśnie tutaj"
+    },
+    "emailLabel": {
+        "ua": "Пошта",
+        "en": "Email",
+        "pl": "Poczta"
+    },
+    "passwordLabel": {
+        "ua": "Пароль",
+        "en": "Password",
+        "pl": "Hasło"
+    },
+    "registrationPageTitle": {
+        "ua": "Реєстрація",
+        "en": "Registration",
+        "pl": "Rejestracja"
+    },
+    "isAuthorizated": {
+        "ua": "Вже маєте акаунт?",
+        "en": "Already have an account?",
+        "pl": "Masz już konto?"
+    },
+    "authorizeNow": {
+        "ua": "Тоді ви можете авторизуватись",
+        "en": "You can then log in",
+        "pl": "Następnie możesz się zalogować"
+    },
+    "nameLabel": {
+        "ua": "Ім'я",
+        "en": "Username",
+        "pl": "Imię"
+    },
+    "avatarLabel": {
+        "ua": "Аватар",
+        "en": "Avatar",
+        "pl": "Awatara"
+    },
+    "confirmedPasswordLabel": {
+        "ua": "Підтвердження паролю",
+        "en": "Password confirmation",
+        "pl": "Potwierdzenie hasła"
+    },
+    "buttonSend": {
+        "ua": "Надіслати",
+        "en": "Send",
+        "pl": "Wysłać"
+    },
+    "informationAboutMe": {
+        "ua": "Контактні дані",
+        "en": "Contact details",
+        "pl": "Dane kontaktowe"
+    },
+    "changeAvatarButton": {
+        "ua": "Змінити фото",
+        "en": "Change avatar",
+        "pl": "Zmień zdjęcie"
+    },
+    "editInformationButton": {
+        "ua": "Редагувати",
+        "en": "Edit",
+        "pl": "Redagować"
     }
 }
