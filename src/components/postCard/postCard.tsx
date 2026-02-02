@@ -4,7 +4,7 @@ import { IPropsPostCard } from "../../shared/types";
 import { Link } from "react-router-dom";
 import {  useContext, useState } from "react";
 import { useLikeOrUnlike } from "../../hooks/use-like";
-import { TranslationContext } from "../../context/localizationContext";
+import { TranslationContext } from "../../context/lozalization-context";
 
 const Profile = ICONS.profile
 

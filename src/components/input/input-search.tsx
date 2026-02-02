@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { PostContext } from "../../context/postContext";
+import { PostContext } from "../../context/post-context";
 import style from "./input.module.css"
-import { TranslationContext } from "../../context/localizationContext";
+import { TranslationContext } from "../../context/lozalization-context";
 
 
 export function InputSearch(){

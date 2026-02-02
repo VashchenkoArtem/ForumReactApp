@@ -1,7 +1,7 @@
 import { IAccountModalProps } from "./account-modal.types";
 import styles from "./account-modal.module.css"
 import { useContext } from "react";
-import { TranslationContext } from "../../context/localizationContext";
+import { TranslationContext } from "../../context/lozalization-context";
 
 export function AccountModal(props: IAccountModalProps){
     const translationContext = useContext(TranslationContext)

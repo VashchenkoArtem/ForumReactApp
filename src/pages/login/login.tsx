@@ -3,19 +3,20 @@ import { AccountModal } from "../../shared";
 import styles from "../../shared/styles/user.module.css";
 import { ILoginForm } from "./login.types";
 import { useForm } from "react-hook-form";
-import { useLogin } from "../../hooks/use-login";
 import { useContext } from "react";
-import { TranslationContext } from "../../context/localizationContext";
+import { TranslationContext } from "../../context/lozalization-context";
+import { UserContext } from "../../context/user-context";
 
 export function LoginPage(){
     const { register, handleSubmit } = useForm<ILoginForm>()
-    const { loginUser } = useLogin()
+    const userContext = useContext(UserContext)
     const navigate = useNavigate()
     const translationContext = useContext(TranslationContext)
-    if (!translationContext) return null
+    if (!translationContext || !userContext) return null
+    const { login } = userContext
     const translate = translationContext.translate
     async function onSubmit(data: ILoginForm) {
-        await loginUser(data)
+        await login(data)
         navigate("/")
     }
     return (

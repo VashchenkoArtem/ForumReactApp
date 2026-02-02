@@ -7,8 +7,8 @@ import { MoonLoader } from "react-spinners";
 import { useWindowWidth } from "@react-hook/window-size";
 import { Filter } from "../../components/filter";
 import { Urls } from "../../app/urls";
-import { PostContext } from "../../context/postContext";
-import { TranslationContext } from "../../context/localizationContext";
+import { PostContext } from "../../context/post-context";
+import { TranslationContext } from "../../context/lozalization-context";
  
 export function AllPosts(){
     const context = useContext(PostContext)

@@ -178,5 +178,20 @@
         "ua": "Редагувати",
         "en": "Edit",
         "pl": "Redagować"
+    },
+    "requiredFieldError": {
+        "ua": "Це поле обов'язкове!",
+        "en": "This field is required!",
+        "pl": "To pole jest wymagane!"
+    },
+    "errorAtEmail": {
+        "ua": "У пошті має бути присутнім @",
+        "en": "The email must contain the @ sign",
+        "pl": "Wiadomość e-mail musi zawierać znak @"
+    },
+    "minLengthAtPassword": {
+        "ua": "Пароль має бути не менше 8 символів!",
+        "en": "Password must be at least 8 characters long!",
+        "pl": "Hasło musi mieć co najmniej 8 znaków!"
     }
 }

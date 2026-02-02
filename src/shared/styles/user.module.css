@@ -51,3 +51,8 @@ a{
     font-size: clamp(14px, 2vw, 18px);
     color: rgba(120, 107, 119, 1);
 }
+.error{
+    color: red;
+    font-size: clamp(10px, 2vw, 14px);
+    font-family: "light walsheim", sans-serif;
+}

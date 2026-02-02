@@ -8,7 +8,7 @@ import { useLikeOrUnlike } from "../../hooks/use-like";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useAddComment } from "../../hooks/use-add-comment";
 import { IComments } from "../../shared/types/post";
-import { TranslationContext } from "../../context/localizationContext";
+import { TranslationContext } from "../../context/lozalization-context";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like

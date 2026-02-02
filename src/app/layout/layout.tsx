@@ -7,7 +7,7 @@ import { PostList } from "../../components/postList"
 import { Modal } from "../../shared/"
 import { CreatePostForm } from "../../components/create-post"
 import { Outlet } from "react-router-dom"
-import { PostContext } from "../../context/postContext"
+import { PostContext } from "../../context/post-context"
 
 export function Layout(){
     const [loading, setLoading] = useState<boolean>()

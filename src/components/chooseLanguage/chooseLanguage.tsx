@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import styles from "./chooseLanguage.module.css"
 import { ILanguageProps } from "./chooseLanguage.types"
-import { TranslationContext } from "../../context/localizationContext"
+import { TranslationContext } from "../../context/lozalization-context"
 
 export function ChooseLanguage(props: ILanguageProps){
     const { isOpenLanguage } = props

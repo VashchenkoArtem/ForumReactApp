@@ -4,7 +4,7 @@ import styles from "./create-post.module.css"
 import { IForm } from "../../shared"
 import { useCreatePost } from "../../hooks/use-create-post"
 import { useNavigate } from "react-router-dom"
-import { TranslationContext } from "../../context/localizationContext"
+import { TranslationContext } from "../../context/lozalization-context"
 
 export function CreatePostForm(){
     const { tags } = useTags()

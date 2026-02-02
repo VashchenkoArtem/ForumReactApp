@@ -5,7 +5,7 @@ import {useWindowWidth} from '@react-hook/window-size'
 import { ICONS } from "../../shared"
 import { ChooseLanguage } from "../../components/chooseLanguage"
 import { useContext, useState } from "react"
-import { TranslationContext } from "../../context/localizationContext"
+import { TranslationContext } from "../../context/lozalization-context"
 
 
 export function Urls(props: IProps){

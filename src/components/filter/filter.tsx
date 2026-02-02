@@ -1,8 +1,8 @@
 import style from "./filter.module.css"
 import { ICONS } from "../../shared"
 import { useContext, useState } from "react"
-import { PostContext } from "../../context/postContext"
-import { TranslationContext } from "../../context/localizationContext"
+import { PostContext } from "../../context/post-context"
+import { TranslationContext } from "../../context/lozalization-context"
 
 const ArrowUp = ICONS.arrowUp
 export function Filter(){

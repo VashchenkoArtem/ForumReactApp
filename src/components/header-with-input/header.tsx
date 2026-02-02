@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { InputSearch } from "../input"
 import style from "./header.module.css"
-import { PostContext } from "../../context/postContext"
-import { TranslationContext } from "../../context/localizationContext"
+import { PostContext } from "../../context/post-context"
+import { TranslationContext } from "../../context/lozalization-context"
 import { Link } from "react-router-dom"
 
   
