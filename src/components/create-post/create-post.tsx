@@ -11,8 +11,9 @@ export function CreatePostForm(){
     const [ formInputs, setFormInputs ] = useState<IForm>()
     const [ selectedTags, setSelectedTags ] = useState<number[]>([])
     const { createPost } = useCreatePost()
-    const navigate = useNavigate()
     const translationContext = useContext(TranslationContext)
+    const navigate = useNavigate()
+    if (!createPost) return null
     if (!translationContext) return null
     const translate = translationContext.translate
     return (

@@ -1,5 +1,5 @@
 export function useRemoveLike(postId: number) {
-    async function removeLike () {
+    async function removeLike (token: string) {
         try {
         const response = await fetch(
             `http://127.0.0.1:8000/posts/${postId}/likes`,
@@ -7,7 +7,7 @@ export function useRemoveLike(postId: number) {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzY4Mzk0NTA2LCJleHAiOjE3Njg5OTkzMDZ9.khJ9xXEoucybxdBx_-GCcaiPu8c8wnvcuCR8RRarijY"
+                "Authorization": `Bearer ${token}`
             }
             }
         )

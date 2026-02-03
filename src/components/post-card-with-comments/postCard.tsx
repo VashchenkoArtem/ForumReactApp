@@ -9,6 +9,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useAddComment } from "../../hooks/use-add-comment";
 import { IComments } from "../../shared/types/post";
 import { TranslationContext } from "../../context/lozalization-context";
+import { UserContext } from "../../context/user-context";
 
 const Profile = ICONS.profile
 const LikeIcon = ICONS.like
@@ -29,62 +30,63 @@ export function PostCardWithComments(props: IPropsPostCard){
         messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
     }, [comments])
     const { addComment } = useAddComment(post.id,comment,setCommentsFunc, comments)
-    const { checkLikes, isLiked} = useLikeOrUnlike(post.id, setLikes, likesCount)
+    const { checkLikes, isLiked } = useLikeOrUnlike(post.id, setLikes, likesCount)
     const LikeIcon = isLiked ? ICONS.filledLike : ICONS.like;
     const translationContext = useContext(TranslationContext)
-    if (!translationContext) return null
+    if (!translationContext || !addComment) return null
     const translate = translationContext.translate
-    return  <div className={style.post}>
-        <div className={style.postHat}>
-            <div className={style.postAuthor}>
-                <Profile className={style.postAuthorAvatar}></Profile>
-                <h1 className={style.postAuthorName}>{post.createdBy.name}</h1>
+    return  (
+        <div className={style.post}>
+            <div className={style.postHat}>
+                <div className={style.postAuthor}>
+                    <Profile className={style.postAuthorAvatar}></Profile>
+                    <h1 className={style.postAuthorName}>{post.createdBy.name}</h1>
+                </div>
+                <div className = {style.line}></div>
             </div>
-            <div className = {style.line}></div>
+            <div className={style.postMainContent}>
+                <h1 className={style.postTitle}>{post.title}</h1>
+                <h1 className = {style.postContent}>{post.description}</h1>
+                <div className={style.postTags}>
+                    {post.tags?.map((tag) => {
+                        return <div key = {tag.tag.id} className={style.postTag}>
+                            <h1 className={style.postTagTitle}>#{tag.tag.name}</h1>
+                        </div>  
+                    })}
+                </div>
+                <div className={style.likeAndGoToPost}>
+                    <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
+                    <h1 className={style.goToPost}>{likesCount}</h1>
+                </div>
+                <div className = {style.postComments}>
+                    {comments.map((comment) => {
+                        return (
+                        <div key = {comment.id} className = {style.comment}>
+                            <h1 className = {style.commentAuthor}>{comment.author.name}</h1>
+                            <h1 className = {style.commentBody}>{comment.content}</h1>
+                        </div>
+                        )
+                    })}
+                    <div ref = {messagesEndRef}></div>
+                </div>
+                <ReactQuill 
+                placeholder= {translate("writeACommentPlaceholder")}
+                className = {style.reactQuill} 
+                theme = "snow"
+                value = {comment}
+                onChange={(value) => {
+                    const div = document.createElement("div");
+                    div.innerHTML = value;
+                    const text = div.textContent || "";
+                    setComment(text)
+                }}
+                onKeyDown={(button)=>{
+                    if (button.key === "Enter"){
+                        addComment()
+                        setComment("")
+                    }
+                }}
+                ></ReactQuill>
+            </div>
         </div>
-        <div className={style.postMainContent}>
-            <h1 className={style.postTitle}>{post.title}</h1>
-            <h1 className = {style.postContent}>{post.description}</h1>
-            <div className={style.postTags}>
-                {post.tags?.map((tag) => {
-                    return <div key = {tag.tag.id} className={style.postTag}>
-                        <h1 className={style.postTagTitle}>#{tag.tag.name}</h1>
-                    </div>  
-                })}
-            </div>
-            <div className={style.likeAndGoToPost}>
-                <LikeIcon className = {style.likeIcon} onClick = {checkLikes}></LikeIcon>
-                <h1 className={style.goToPost}>{likesCount}</h1>
-            </div>
-            <div className = {style.postComments}>
-                {comments.map((comment) => {
-                    return (
-                    <div key = {comment.id} className = {style.comment}>
-                        <h1 className = {style.commentAuthor}>{comment.author.name}</h1>
-                        <h1 className = {style.commentBody}>{comment.content}</h1>
-                    </div>
-                    )
-                })}
-                <div ref = {messagesEndRef}></div>
-            </div>
-            <ReactQuill 
-            placeholder= {translate("writeACommentPlaceholder")}
-            className = {style.reactQuill} 
-            theme = "snow"
-            value = {comment}
-            onChange={(value) => {
-                const div = document.createElement("div");
-                div.innerHTML = value;
-                const text = div.textContent || "";
-                setComment(text)
-            }}
-            onKeyDown={(button)=>{
-                if (button.key === "Enter"){
-                    addComment()
-                    setComment("")
-                }
-            }}
-            ></ReactQuill>
-        </div>
-    </div>
-}
+)}

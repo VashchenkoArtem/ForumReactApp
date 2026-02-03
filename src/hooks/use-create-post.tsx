@@ -1,7 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { IForm, ITag } from "../shared"
+import { UserContext } from "../context/user-context"
 
 export function useCreatePost(){
+    const userContext = useContext(UserContext)
+    if (!userContext) return {result: "error"}
+    const { token } = userContext
     async function createPost(form:IForm){
         try{
             console.log(form)
@@ -10,7 +14,7 @@ export function useCreatePost(){
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzY4Mzk0NTA2LCJleHAiOjE3Njg5OTkzMDZ9.khJ9xXEoucybxdBx_-GCcaiPu8c8wnvcuCR8RRarijY"
+                        "Authorization": `Bearer ${token}`
                     },
                     body: JSON.stringify(form)
                 }

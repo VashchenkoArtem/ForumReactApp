@@ -1,6 +1,11 @@
+import { useContext } from "react"
 import { IComments } from "../shared/types/post"
+import { UserContext } from "../context/user-context"
 
 export function useAddComment(postId: number, content: string, setComments: (comemnts: IComments[]) => void, comments: IComments[]){
+    const userContext = useContext(UserContext)
+    if (!userContext) return {result: "error"}
+    const { token } = userContext
     async function addComment(){
         try{
             const response = await fetch(`http://127.0.0.1:8000/posts/${postId}/comments`,
@@ -8,7 +13,7 @@ export function useAddComment(postId: number, content: string, setComments: (com
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzY4Mzk0NTA2LCJleHAiOjE3Njg5OTkzMDZ9.khJ9xXEoucybxdBx_-GCcaiPu8c8wnvcuCR8RRarijY"
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({content: content})})
             const result = await response.json()

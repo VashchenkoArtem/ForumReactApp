@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../context/user-context"
 
 export function useAddLike(postId: number) {
-    async function addLike () {
+    async function addLike (token: string) {
         try {
         const response = await fetch(
             `http://127.0.0.1:8000/posts/${postId}/likes`,
@@ -9,7 +10,7 @@ export function useAddLike(postId: number) {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzY4Mzk0NTA2LCJleHAiOjE3Njg5OTkzMDZ9.khJ9xXEoucybxdBx_-GCcaiPu8c8wnvcuCR8RRarijY"
+                "Authorization": `Bearer ${token}`
             }
             }
         )

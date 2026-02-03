@@ -22,6 +22,9 @@ export function PostPage(){
         )
     }
     return (
-        <PostCardWithComments post = {post}/>
+        <main className={style.pageMain}>
+            <Urls setModalOpen={handleInputFocus}></Urls>
+            <PostCardWithComments post = {post}/>
+        </main>
     )
 }

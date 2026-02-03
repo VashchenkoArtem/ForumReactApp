@@ -22,6 +22,7 @@ export function UserContextProvider(props: IUserContextProvider){
     const [user, setUser] = useState<IUser | null>(null)
     const [token, setToken] = useState<string | null>(null)
     useEffect(() => {
+        setToken(localStorage.getItem("token"))
         async function getMe(){
             try{
                 const response = await fetch("http://localhost:8000/users/me", {
@@ -57,7 +58,7 @@ export function UserContextProvider(props: IUserContextProvider){
                 body: JSON.stringify(dataWithoutConfirmPassword),
             })
             const result = await response.json()
-            console.log(result)
+            localStorage.setItem("token", result.token)
             setToken(result.token)
         }catch(error){
             console.log(error)
@@ -73,6 +74,7 @@ export function UserContextProvider(props: IUserContextProvider){
                 body: JSON.stringify(data),
             })
             const result = await response.json()
+            localStorage.setItem("token", result.token)
             setToken(result.token)
         }catch(error){
             console.log(error)
